@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SunDarknessShine – Official Art Site</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: url("your-image.jpg") no-repeat center center/cover;
+      height: 100vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+      position: relative;
+    }
+
+    /* overlay для затемнения фона */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #e0e0e0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.7rem 1.4rem;
+      border: 1px solid #fff;
+      border-radius: 25px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #111;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 2;
+    }
+
+    .lang-switch button {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #ccc;
+      color: #fff;
+      border-radius: 5px;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .lang-switch button:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button>EN</button>
+    <button>RU</button>
+    <button>JP</button>
+  </div>
+
+  <div class="content">
+    <h1>SunDarknessShine</h1>
+    <p>The official website of the artist</p>
+
+    <div class="buttons">
+      <a href="gallery.html" class="btn">View Gallery</a>
+      <a href="contact.html" class="btn">Contact</a>
+      <a href="about.html" class="btn">Information</a>
+    </div>
+  </div>
+
+  <footer>© 2025 SunDarknessShine</footer>
+</body>
+</html>
