@@ -13,7 +13,9 @@
     }
 
     body {
-      background: url("your-image.jpg") no-repeat center center/cover;
+      /* 👇 вот эта строка — твой фоновый рисунок */
+      background: url("background.jpg") no-repeat center center fixed;
+      background-size: cover; /* растягивает картинку по размеру экрана */
       height: 100vh;
       color: #fff;
       display: flex;
@@ -22,6 +24,7 @@
       align-items: center;
       text-shadow: 0 0 10px rgba(0,0,0,0.7);
       position: relative;
+      overflow: hidden;
     }
 
     /* overlay для затемнения фона */
@@ -37,6 +40,7 @@
       position: relative;
       z-index: 1;
       text-align: center;
+      padding: 1rem;
     }
 
     h1 {
@@ -102,6 +106,19 @@
       font-size: 0.9rem;
       color: #ccc;
       z-index: 1;
+    }
+
+    /* адаптация под мобильные */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .btn {
+        padding: 0.5rem 1rem;
+      }
     }
   </style>
 </head>
