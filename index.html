@@ -41,7 +41,7 @@
       padding: 1rem;
     }
 
-    /* Заголовок — Kuromi violet с чёрной обводкой и лёгким свечением */
+    /* Заголовок — Kuromi violet с чёрной обводкой и мягким свечением */
     h1 {
       font-size: 3.2rem;
       margin-bottom: 0.5rem;
@@ -72,19 +72,21 @@
       justify-content: center;
     }
 
+    /* Кнопки — теперь с чёрным текстом */
     .btn {
       padding: 0.7rem 1.4rem;
       border: 1px solid #000;
       border-radius: 25px;
-      color: #fff;
+      color: #000; /* чёрный текст */
       text-decoration: none;
       transition: all 0.3s ease;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.8); /* светлый фон */
+      font-weight: 500;
     }
 
     .btn:hover {
       background: #7A2E8E;
-      color: #fff;
+      color: #fff; /* белый текст при наведении */
       border-color: #7A2E8E;
     }
 
