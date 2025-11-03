@@ -19,12 +19,12 @@
       color: #fff;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end; /* смещаем контент вниз */
+      justify-content: flex-end;
       align-items: center;
       text-shadow: 0 0 10px rgba(0,0,0,0.7);
       position: relative;
       overflow: hidden;
-      padding-bottom: 10vh; /* отступ снизу, чтобы не прижималось к краю */
+      padding-bottom: 10vh;
     }
 
     body::before {
@@ -46,7 +46,7 @@
       font-size: 3rem;
       margin-bottom: 0.5rem;
       letter-spacing: 2px;
-      color: #FFD700; /* золото */
+      color: #FFD700;
       text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
     }
 
@@ -65,7 +65,7 @@
 
     .btn {
       padding: 0.7rem 1.4rem;
-      border: 1px solid #000; /* черная рамка */
+      border: 1px solid #000;
       border-radius: 25px;
       color: #fff;
       text-decoration: none;
@@ -74,7 +74,7 @@
     }
 
     .btn:hover {
-      background: #FFD700; /* золотой фон при наведении */
+      background: #FFD700;
       color: #111;
       border-color: #FFD700;
     }
@@ -124,10 +124,11 @@
   </style>
 </head>
 <body>
+  <!-- переключатель языков -->
   <div class="lang-switch">
-    <button>EN</button>
-    <button>RU</button>
-    <button>JP</button>
+    <button onclick="location.href='index.html'">EN</button>
+    <button onclick="location.href='index_ru.html'">RU</button>
+    <button onclick="location.href='index_jp.html'">JP</button>
   </div>
 
   <div class="content">

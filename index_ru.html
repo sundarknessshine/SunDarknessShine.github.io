@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SunDarknessShine – Официальный сайт художницы</title>
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
+    body {
+      background: url("background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 10vh;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 0;
+    }
+    .content {position:relative;z-index:1;text-align:center;padding:1rem;}
+    h1 {
+      font-size:3rem;margin-bottom:0.5rem;letter-spacing:2px;
+      color:#FFD700;text-shadow:0 0 20px rgba(255,215,0,0.6);
+    }
+    p {font-size:1.2rem;margin-bottom:2rem;color:#e0e0e0;}
+    .buttons {display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+    .btn {
+      padding:0.7rem 1.4rem;border:1px solid #000;border-radius:25px;
+      color:#fff;text-decoration:none;transition:all 0.3s ease;
+      background:rgba(0,0,0,0.4);
+    }
+    .btn:hover {background:#FFD700;color:#111;border-color:#FFD700;}
+    .lang-switch {
+      position:absolute;top:1.5rem;right:1.5rem;
+      display:flex;gap:0.5rem;z-index:2;
+    }
+    .lang-switch button {
+      background:rgba(255,255,255,0.1);border:1px solid #ccc;
+      color:#fff;border-radius:5px;padding:0.3rem 0.6rem;
+      cursor:pointer;transition:background 0.3s;
+    }
+    .lang-switch button:hover {background:rgba(255,255,255,0.3);}
+    footer {
+      position:absolute;bottom:1rem;font-size:0.9rem;color:#ccc;z-index:1;
+    }
+    @media(max-width:600px){
+      h1{font-size:2rem;}
+      p{font-size:1rem;}
+      .btn{padding:0.5rem 1rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button onclick="location.href='index.html'">EN</button>
+    <button onclick="location.href='index_jp.html'">JP</button>
+  </div>
+
+  <div class="content">
+    <h1>SunDarknessShine</h1>
+    <p>Официальный сайт художницы</p>
+    <div class="buttons">
+      <a href="gallery.html" class="btn">Галерея</a>
+      <a href="contact_ru.html" class="btn">Контакты</a>
+      <a href="about_ru.html" class="btn">Информация</a>
+    </div>
+  </div>
+
+  <footer>© 2025 SunDarknessShine</footer>
+</body>
+</html>

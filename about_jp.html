@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>情報 – SunDarknessShine</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    p {
+      max-width: 700px;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      margin-bottom: 3rem;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .lang-switch button {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #ccc;
+      color: #fff;
+      border-radius: 5px;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .lang-switch button:hover { background: rgba(255,255,255,0.3); }
+    a.back {
+      color: #aaa;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    a.back:hover {
+      background: #FFD700;
+      color: #111;
+      border-color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button onclick="location.href='about.html'">EN</button>
+    <button onclick="location.href='about_ru.html'">RU</button>
+  </div>
+
+  <p>各作品は個別に制作され、作家による独自の限定モデルです。  
+  作者は自身の作品の公開権を保有しています。</p>
+
+  <a href="index_jp.html" class="back">← メインへ戻る</a>
+</body>
+</html>
