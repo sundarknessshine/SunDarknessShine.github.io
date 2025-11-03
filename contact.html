@@ -1,122 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery – SunDarknessShine</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact – SunDarknessShine</title>
   <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #000;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    :root{
+      --bg:#000;
+      --text:#fff;
+      --muted:#aaa;
+      --gap:12px;
+      --card-radius:10px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:24px 12px 48px;
+      min-height:100vh;
     }
 
-    h1 {
-      margin: 2rem 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+    h1{
+      margin:8px 0 20px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-size:1.25rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 10px;
-      width: 90%;
-      max-width: 1200px;
+    .grid{
+      width:100%;
+      max-width:980px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:var(--gap);
+      align-items:start;
     }
 
-    .grid-item {
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
+    .card{
+      background:rgba(255,255,255,0.03);
+      border-radius:var(--card-radius);
+      padding:12px;
+      display:flex;
+      flex-direction:column; /* изображение сверху, ссылка снизу */
+      align-items:center;
+      text-align:center;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{ transform:translateY(-6px); box-shadow:0 10px 30px rgba(0,0,0,.6); }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:contain; /* сохраняет пропорции штрихкода */
+      border-radius:6px;
+      background:rgba(255,255,255,0.02);
+      display:block;
     }
 
-    .grid-item img,
-    .grid-item video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
+    /* контейнер для ссылки прямо под картинкой */
+    .card .link {
+      margin-top:10px;
+      font-size:0.95rem;
+      color:var(--muted);
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:8px 10px;
+      border-radius:8px;
+      background:rgba(255,255,255,0.02);
+      width:100%;
+      display:inline-block;
+      box-shadow: none;
+      transition: background .15s, color .15s, border-color .15s;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
     }
 
-    .grid-item:hover img,
-    .grid-item:hover video {
-      transform: scale(1.05);
+    .card .link:hover{
+      color:#111;
+      background:#FFD700; /* золотой при наведении */
+      border-color:#FFD700;
     }
 
-    /* Lightbox */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.9);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-      flex-direction: column;
+    /* иконка стрелки справа в ссылке (необязательно) */
+    .link::after{
+      content:" ↗";
+      float:right;
+      opacity:0.9;
     }
 
-    .lightbox.active {
-      display: flex;
+    /* back button */
+    .back{
+      margin-top:20px;
+      color:var(--muted);
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:8px 12px;
+      border-radius:8px;
     }
+    .back:hover{ color:#fff; border-color:#fff; }
 
-    .lightbox img,
-    .lightbox video {
-      max-width: 90%;
-      max-height: 80vh;
-      border-radius: 10px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.2);
-    }
-
-    .close-btn, .prev-btn, .next-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      user-select: none;
-      background: rgba(0,0,0,0.4);
-      border-radius: 50%;
-      padding: 10px 15px;
-      transition: background 0.3s;
-    }
-
-    .close-btn:hover,
-    .prev-btn:hover,
-    .next-btn:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .close-btn {
-      top: 2rem;
-      right: 2rem;
-      transform: none;
-      font-size: 2.5rem;
-    }
-
-    .prev-btn { left: 2rem; }
-    .next-btn { right: 2rem; }
-
-    a.back {
-      margin: 2rem;
-      color: #aaa;
-      text-decoration: none;
-      border: 1px solid #444;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    a.back:hover {
-      color: #fff;
-      border-color: #fff;
+    @media (max-width:420px){
+      .card img{ height:160px; }
+      .card .link{ font-size:0.9rem; padding:8px; }
     }
   </style>
 </head>
@@ -124,87 +117,37 @@
   <h1>Contacts</h1>
 
   <div class="grid">
-    <!-- Просто добавляй блоки с нужными файлами -->
-    <div class="grid-item" data-type="image" data-src="1.jpg"><img src="instagram.jpg" alt=""></div>
-	https://www.instagram.com/7sunshine8?utm_source=qr&igsh=bDI1dHkwenJtcDY5
-    <div class="grid-item" data-type="image" data-src="2.jpg"><img src="line.jpg" alt=""></div>
-	https://line.me/ti/p/Z98vMmhwl-
-    <div class="grid-item" data-type="image" data-src="2.jpg"><img src="watsapp.jpg" alt=""></div>
-	https://wa.me/qr/GIOBZKEOQOSPC1
+    <!-- Instagram -->
+    <div class="card">
+      <a class="link" href="https://www.instagram.com/7sunshine8?utm_source=qr&igsh=bDI1dHkwenJtcDY5" target="_blank" rel="noopener noreferrer">
+        Instagram: @7sunshine8
+      </a>
+      <a href="https://www.instagram.com/7sunshine8?utm_source=qr&igsh=bDI1dHkwenJtcDY5" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram">
+        <img src="instagram.jpg" alt="Instagram QR / barcode">
+      </a>
+    </div>
 
+    <!-- LINE -->
+    <div class="card">
+      <a class="link" href="https://line.me/ti/p/Z98vMmhwl-" target="_blank" rel="noopener noreferrer">
+        LINE: open
+      </a>
+      <a href="https://line.me/ti/p/Z98vMmhwl-" target="_blank" rel="noopener noreferrer" aria-label="Open Line">
+        <img src="line.jpg" alt="LINE QR / barcode">
+      </a>
+    </div>
+
+    <!-- WhatsApp -->
+    <div class="card">
+      <a class="link" href="https://wa.me/qr/GIOBZKEOQOSPC1" target="_blank" rel="noopener noreferrer">
+        WhatsApp: open chat
+      </a>
+      <a href="https://wa.me/qr/GIOBZKEOQOSPC1" target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp">
+        <img src="watsapp.jpg" alt="WhatsApp QR / barcode">
+      </a>
+    </div>
   </div>
 
   <a href="index.html" class="back">← Back to main</a>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <span class="close-btn" id="closeBtn">&times;</span>
-    <span class="prev-btn" id="prevBtn">&#10094;</span>
-    <span class="next-btn" id="nextBtn">&#10095;</span>
-    <div id="lightbox-content"></div>
-  </div>
-
-  <script>
-    const items = document.querySelectorAll('.grid-item');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxContent = document.getElementById('lightbox-content');
-    const closeBtn = document.getElementById('closeBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    let currentIndex = 0;
-
-    function openLightbox(index) {
-      const item = items[index];
-      const type = item.dataset.type;
-      const src = item.dataset.src;
-
-      lightboxContent.innerHTML = '';
-      if (type === 'image') {
-        const img = document.createElement('img');
-        img.src = src;
-        lightboxContent.appendChild(img);
-      } else if (type === 'video') {
-        const video = document.createElement('video');
-        video.src = src;
-        video.controls = true;
-        video.autoplay = true;
-        lightboxContent.appendChild(video);
-      }
-
-      lightbox.classList.add('active');
-      currentIndex = index;
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      lightboxContent.innerHTML = '';
-    }
-
-    function showNext() {
-      currentIndex = (currentIndex + 1) % items.length;
-      openLightbox(currentIndex);
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      openLightbox(currentIndex);
-    }
-
-    items.forEach((item, index) => {
-      item.addEventListener('click', () => openLightbox(index));
-    });
-
-    closeBtn.addEventListener('click', closeLightbox);
-    nextBtn.addEventListener('click', showNext);
-    prevBtn.addEventListener('click', showPrev);
-
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-    });
-  </script>
 </body>
 </html>

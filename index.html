@@ -13,21 +13,20 @@
     }
 
     body {
-      /* 👇 вот эта строка — твой фоновый рисунок */
       background: url("background.jpg") no-repeat center center fixed;
-      background-size: cover; /* растягивает картинку по размеру экрана */
+      background-size: cover;
       height: 100vh;
       color: #fff;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end; /* смещаем контент вниз */
       align-items: center;
       text-shadow: 0 0 10px rgba(0,0,0,0.7);
       position: relative;
       overflow: hidden;
+      padding-bottom: 10vh; /* отступ снизу, чтобы не прижималось к краю */
     }
 
-    /* overlay для затемнения фона */
     body::before {
       content: "";
       position: absolute;
@@ -47,6 +46,8 @@
       font-size: 3rem;
       margin-bottom: 0.5rem;
       letter-spacing: 2px;
+      color: #FFD700; /* золото */
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
     }
 
     p {
@@ -64,17 +65,18 @@
 
     .btn {
       padding: 0.7rem 1.4rem;
-      border: 1px solid #fff;
+      border: 1px solid #000; /* черная рамка */
       border-radius: 25px;
       color: #fff;
       text-decoration: none;
       transition: all 0.3s ease;
-      background: transparent;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     .btn:hover {
-      background: #fff;
+      background: #FFD700; /* золотой фон при наведении */
       color: #111;
+      border-color: #FFD700;
     }
 
     .lang-switch {
@@ -108,7 +110,6 @@
       z-index: 1;
     }
 
-    /* адаптация под мобильные */
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
