@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery – SunDarknessShine</title>
+  <title>Галерея – SunDarknessShine</title>
   <style>
     body {
       margin: 0;
@@ -71,7 +71,6 @@
       transform: scale(1.05);
     }
 
-    /* Lightbox */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -156,19 +155,16 @@
     <button onclick="location.href='gallery_jp.html'">JP</button>
   </div>
 
-  <h1>Gallery</h1>
+  <h1>Галерея</h1>
 
-  <div class="grid" id="galleryGrid">
-    <!-- Items added by JS -->
-  </div>
+  <div class="grid" id="galleryGrid"></div>
 
   <div class="nav-links">
-    <a href="index.html">Main</a>
-    <a href="about.html">Information</a>
-    <a href="contact.html">Contact</a>
+    <a href="index_ru.html">Главная</a>
+    <a href="about_ru.html">Информация</a>
+    <a href="contact_ru.html">Контакты</a>
   </div>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <span class="close-btn" id="closeBtn">&times;</span>
     <span class="prev-btn" id="prevBtn">&#10094;</span>
@@ -267,7 +263,6 @@
     const MAX_INDEX = 200;
 
     for (let i = 1; i <= MAX_INDEX; i++) {
-      // image i.jpg
       (function(index) {
         const img = new Image();
         const imgSrc = index + '.jpg';
@@ -276,7 +271,6 @@
         img.src = imgSrc;
       })(i);
 
-      // video i.mp4
       (function(index) {
         const videoTest = document.createElement('video');
         const videoSrc = index + '.mp4';
