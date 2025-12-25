@@ -1,116 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Information – SunDarknessShine</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Information – SunDarknessShine</title>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", sans-serif;
-    }
+<style>
+html, body{margin:0;padding:0;font-family:"Segoe UI",sans-serif;}
+body{
+  background:#000 url("background2.jpg") no-repeat center center fixed;
+  background-size:cover;
+  color:#D6A8F1;
+  text-align:center;
+  padding:2rem 1rem 3rem;
+  min-height:100vh;
+}
 
-    body {
-      background: #000 url("background2.jpg") no-repeat center top;
-      background-size: cover;
-      color: #D6A8F1;
-      text-align: center;
-      padding: 2rem 1rem 3rem;
-    }
+.lang-switch{
+  position:absolute;
+  top:1.5rem;
+  right:1.5rem;
+  display:flex;
+  gap:.5rem;
+}
 
-    .lang-switch {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      display: flex;
-      gap: 0.5rem;
-      z-index: 5;
-    }
+.lang-switch button{
+  background:rgba(0,0,0,0.6);
+  border:1px solid rgba(255,255,255,0.7);
+  color:white;
+  border-radius:6px;
+  padding:.4rem .8rem;
+  cursor:pointer;
+}
 
-    .lang-switch button {
-      background: rgba(0,0,0,0.6);
-      border: 1px solid rgba(255,255,255,0.7);
-      color: white;
-      border-radius: 6px;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-    }
+.content{max-width:1100px;margin:5rem auto 0;}
 
-    .content {
-      max-width: 1100px;
-      margin: 5rem auto 0;
-    }
+h1{
+  font-size:2.4rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:2rem;
+  color:#7A2E8E;
+  text-shadow:
+   -2px -2px 0 #000,
+    2px -2px 0 #000,
+   -2px  2px 0 #000,
+    2px  2px 0 #000,
+    0 0 25px rgba(122,46,142,0.7);
+}
 
-    h1 {
-      font-size: 2.4rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      color: #7A2E8E;
-      text-shadow:
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000,
-         0 0 25px rgba(122,46,142,0.7);
-    }
+p{
+  font-size:1.6rem;
+  line-height:1.9;
+  margin-bottom:1.4rem;
+  color:#D6A8F1;
+  text-shadow:
+   -2px -2px 0 #000,
+    2px -2px 0 #000,
+   -2px  2px 0 #000,
+    2px  2px 0 #000,
+    0 0 18px rgba(0,0,0,0.9);
+}
 
-    p {
-      font-size: 1.6rem;
-      line-height: 1.9;
-      margin-bottom: 1.4rem;
-      color: #D6A8F1;
-      text-shadow:
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000,
-         0 0 18px rgba(0,0,0,0.9);
-    }
+/* Magenta links */
+a{color:#FF3EFF;text-decoration:none;}
+a:hover{color:#FF7CFF;text-decoration:underline;}
 
-    a {
-      color: #FFD700;
-      text-decoration: none;
-      text-shadow:
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000;
-    }
+.back{
+  display:inline-block;
+  margin-top:1.5rem;
+  padding:10px 16px;
+  border-radius:8px;
+  border:1px solid rgba(255,62,255,0.7);
+  color:#FF3EFF;
+  text-decoration:none;
+}
+.back:hover{
+  background:rgba(255,62,255,0.3);
+  border-color:#FF7CFF;
+  color:white;
+}
 
-    a:hover {
-      color: white;
-      text-decoration: underline;
-    }
-
-    .back {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 10px 16px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.6);
-      color: #FFD700;
-      text-decoration: none;
-      text-shadow:
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000;
-    }
-
-    .back:hover {
-      background: #7A2E8E;
-      border-color: #7A2E8E;
-      color: white;
-    }
-
-    @media(max-width: 600px) {
-      h1 { font-size: 1.9rem; }
-      p { font-size: 1.2rem; }
-    }
-  </style>
+@media(max-width:600px){
+ h1{font-size:1.9rem;}
+ p{font-size:1.2rem;}
+}
+</style>
 </head>
 
 <body>
@@ -122,26 +97,28 @@
 
 <div class="content">
 
-  <h1>SunDarknessShine</h1>
+<h1>Sundarknessshine</h1>
 
-  <p>Each piece is created individually as a unique, exclusive artwork. The author retains the rights to publish her works.</p>
+<p>Each artwork is created individually and exists as a unique, one-of-a-kind original piece. The author reserves the right to publish artworks.</p>
 
-  <p>The image is permanent: it does not wash off, crack or fade. The item can be washed in a washing machine, following standard garment care instructions.</p>
+<p>The image is permanent: it does not wash off, crack or fade. The clothing can be machine-washed.</p>
 
-  <p>Production time is usually between 2 and 5 days, provided there is no waiting list.</p>
+<p>Typical production time is 2–5 days if there is no queue.</p>
 
-  <p>
-    If you like a model from the
-    <a href="gallery.html">gallery</a>,
-    you can purchase one of the presented works
-    or request a custom piece —
-    please contact the artist via
-    <a href="contact.html">contacts</a>.
-  </p>
+<p>
+If you liked a model in the
+<a href="gallery.html">gallery</a>,
+you can purchase one of the presented works or place a personal order —
+please contact the artist via
+<a href="contact.html">contacts</a>.
+</p>
 
-  <p>Approximate cost for an item with original artwork starts from 50,000&nbsp;¥ or 500&nbsp;€ (depending on region and complexity of the order).</p>
+<p>
+Approximate cost: from 20,000&nbsp;¥ — paintings, from 30,000&nbsp;¥ — clothing  
+(or 200&nbsp;€ / 300&nbsp;€, depending on region and complexity).
+</p>
 
-  <a href="index.html" class="back">← Back to main page</a>
+<a href="index.html" class="back">← Back to main page</a>
 
 </div>
 
