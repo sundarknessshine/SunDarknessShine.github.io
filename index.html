@@ -13,26 +13,22 @@
     }
 
     body {
+      /* На десктопе – фиксированный фон, центр, cover */
       background: url("background.jpg") no-repeat center center fixed;
       background-size: cover;
-      height: 100vh;
+
+      min-height: 100vh;
       color: #fff;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
       position: relative;
-      overflow: hidden;
       padding-bottom: 10vh;
+      overflow-x: hidden; /* НЕ скрываем вертикаль! */
     }
 
-    body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: 0;
-    }
+    /* Без затемняющего body::before – фон чистый */
 
     .content {
       position: relative;
@@ -41,22 +37,20 @@
       padding: 1rem;
     }
 
-    /* Заголовок — Kuromi violet с чёрной обводкой и мягким свечением */
     h1 {
       font-size: 3.2rem;
       margin-bottom: 0.5rem;
       letter-spacing: 2px;
-      color: #7A2E8E; /* Kuromi purple */
+      color: #7A2E8E;
       text-shadow:
         -2px -2px 0 #000,
-        2px -2px 0 #000,
-        -2px 2px 0 #000,
-        2px 2px 0 #000,
-        0 0 25px rgba(122,46,142,0.6);
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+         0 0 25px rgba(122,46,142,0.6);
       font-style: normal;
     }
 
-    /* Подпись — чёрный курсив, без подложки */
     p {
       font-size: 1.4rem;
       margin-bottom: 2rem;
@@ -72,15 +66,14 @@
       justify-content: center;
     }
 
-    /* Тёмные кнопки, но текст светло-фиолетовый */
     .btn {
       padding: 0.7rem 1.4rem;
       border: 1px solid #000;
       border-radius: 25px;
-      color: #D6A8F1; /* светло-фиолетовый текст */
+      color: #D6A8F1;
       text-decoration: none;
       transition: all 0.3s ease;
-      background: rgba(0, 0, 0, 0.4); /* тёмная кнопка */
+      background: rgba(0, 0, 0, 0.4);
     }
 
     .btn:hover {
@@ -120,9 +113,17 @@
       z-index: 1;
     }
 
-    @media (max-width: 600px) {
+    /* На мобильных отключаем fixed-фон и чуть сдвигаем вверх,
+       чтобы картинка не казалась обрезанной странно */
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;
+        background-position: center top;
+        padding-bottom: 8vh;
+      }
+
       h1 { font-size: 2rem; }
-      p { font-size: 1.1rem; }
+      p  { font-size: 1.1rem; }
       .btn { padding: 0.5rem 1rem; }
     }
   </style>

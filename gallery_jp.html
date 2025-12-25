@@ -198,6 +198,7 @@
         video.src = src;
         video.controls = true;
         video.autoplay = true;
+        video.playsInline = true;
         lightboxContent.appendChild(video);
       }
 
@@ -247,9 +248,14 @@
       } else {
         el = document.createElement('video');
         el.src = src;
+
+        // プレビューは静止画のまま（最初のフレームのみ表示）
+        el.preload = 'metadata';
         el.muted = true;
-        el.loop = true;
-        el.autoplay = true;
+        el.playsInline = true;
+        el.controls = false;
+        el.autoplay = false;
+        el.loop = false;
       }
 
       item.appendChild(el);
