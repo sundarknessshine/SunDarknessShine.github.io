@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SunDarknessShine – Official Art Site</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Segoe UI",sans-serif;
+    }
 
     body{
       background:url("background.jpg") no-repeat center center fixed;
@@ -41,7 +46,8 @@
       object-fit:cover;
       border-radius:50%;
       border:4px solid #7A2E8E;
-      box-shadow:0 0 25px rgba(0,0,0,0.9),0 0 30px rgba(122,46,142,0.7);
+      box-shadow:0 0 25px rgba(0,0,0,0.9),
+                 0 0 30px rgba(122,46,142,0.7);
       transition:opacity .4s ease,transform .4s ease;
       cursor:pointer;
     }
@@ -51,19 +57,33 @@
       margin-bottom:.5rem;
       letter-spacing:2px;
       color:#7A2E8E;
-      text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000,0 0 25px rgba(122,46,142,0.6);
+      text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+         0 0 25px rgba(122,46,142,0.6);
     }
 
-    /* НОВЫЙ стиль — как у h1 */
     p{
       font-size:1.4rem;
       margin-bottom:2rem;
       color:#7A2E8E;
       font-style:normal;
-      text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000,0 0 25px rgba(122,46,142,0.6);
+      text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+         0 0 25px rgba(122,46,142,0.6);
     }
 
-    .buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+    .buttons{
+      display:flex;
+      gap:1rem;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
 
     .btn{
       padding:.7rem 1.4rem;
@@ -75,10 +95,19 @@
       background:rgba(0,0,0,0.4);
     }
 
-    .btn:hover{background:#7A2E8E;color:#fff;border-color:#7A2E8E;}
+    .btn:hover{
+      background:#7A2E8E;
+      color:#fff;
+      border-color:#7A2E8E;
+    }
 
     .lang-switch{
-      position:absolute;top:1.5rem;right:1.5rem;display:flex;gap:.5rem;z-index:2;
+      position:absolute;
+      top:1.5rem;
+      right:1.5rem;
+      display:flex;
+      gap:.5rem;
+      z-index:2;
     }
 
     .lang-switch button{
@@ -89,16 +118,33 @@
       padding:.3rem .6rem;
       cursor:pointer;
       transition:.3s;
+      font-size:.9rem;
     }
 
-    .lang-switch button:hover{background:rgba(255,255,255,0.3);}
-    footer{position:absolute;bottom:1rem;font-size:.9rem;color:#ccc;z-index:1;}
+    .lang-switch button:hover{
+      background:rgba(255,255,255,0.3);
+    }
+
+    footer{
+      position:absolute;
+      bottom:1rem;
+      font-size:.9rem;
+      color:#ccc;
+      z-index:1;
+    }
 
     @media(max-width:768px){
-      body{background-attachment:scroll;background-position:center top;padding-bottom:8vh;}
+      body{
+        background-attachment:scroll;
+        background-position:center top;
+        padding-bottom:8vh;
+      }
       h1{font-size:2rem;}
       p{font-size:1.1rem;}
-      .avatar-wrapper{width:150px;height:150px;}
+      .avatar-wrapper{
+        width:150px;
+        height:150px;
+      }
     }
   </style>
 </head>
@@ -125,22 +171,24 @@
 
   <footer>© 2025 SunDarknessShine</footer>
 
-<script>
-const avatar=document.getElementById("artistAvatar");
-const photos=["artist_photo.jpg","artist_avatar.jpg"];
-let current=0;
-function switchAvatar(){
-  current=(current+1)%photos.length;
-  avatar.style.opacity=0;
-  avatar.style.transform="scale(0.97)";
-  setTimeout(()=>{
-    avatar.src=photos[current];
-    avatar.style.opacity=1;
-    avatar.style.transform="scale(1)";
-  },200);
-}
-setInterval(switchAvatar,2000);
-avatar.addEventListener("click",switchAvatar);
-</script>
+  <script>
+    const avatar = document.getElementById("artistAvatar");
+    const photos = ["artist_photo.jpg","artist_avatar.jpg"];
+    let current = 0;
+
+    function switchAvatar(){
+      current = (current + 1) % photos.length;
+      avatar.style.opacity = 0;
+      avatar.style.transform = "scale(0.97)";
+      setTimeout(()=>{
+        avatar.src = photos[current];
+        avatar.style.opacity = 1;
+        avatar.style.transform = "scale(1)";
+      },200);
+    }
+
+    setInterval(switchAvatar,2000);
+    avatar.addEventListener("click",switchAvatar);
+  </script>
 </body>
 </html>
