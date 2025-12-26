@@ -13,7 +13,7 @@
     }
 
     body{
-      background:url("background.jpg") no-repeat center center fixed;
+      background:#000 url("background.jpg") no-repeat center center fixed;
       background-size:cover;
       min-height:100vh;
       color:#fff;
@@ -135,8 +135,12 @@
 
     @media(max-width:768px){
       body{
+        /* Главное изменение: логотип целиком по ширине */
         background-attachment:scroll;
         background-position:center top;
+        background-size:contain;
+        background-repeat:no-repeat;
+        background-color:#000;
         padding-bottom:8vh;
       }
       h1{font-size:2rem;}
