@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галерея – SunDarknessShine</title>
+
+<style>
+body{
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:#000 url("background2.jpg") no-repeat center center fixed;
+  background-size:cover;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+}
+
+.lang-switch{
+  position:absolute;
+  top:1.5rem;
+  right:1.5rem;
+  display:flex;
+  gap:.5rem;
+  z-index:5;
+}
+.lang-switch button{
+  background:rgba(0,0,0,.6);
+  border:1px solid rgba(255,255,255,.7);
+  color:#fff;
+  border-radius:6px;
+  padding:.3rem .7rem;
+  cursor:pointer;
+}
+
+h1{
+  margin:2.5rem 0 1.5rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#7A2E8E;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 25px rgba(122,46,142,.7);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:10px;
+  width:90%;
+  max-width:1200px;
+}
+
+.grid-item{
+  cursor:pointer;
+  overflow:hidden;
+  border-radius:10px;
+}
+.grid-item img,
+.grid-item video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.3s;
+}
+.grid-item:hover img,
+.grid-item:hover video{transform:scale(1.05);}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:100;
+  flex-direction:column;
+}
+.lightbox.active{display:flex;}
+
+.lightbox img,
+.lightbox video{
+  max-width:90%;
+  max-height:80vh;
+  border-radius:10px;
+}
+
+.close-btn,.prev-btn,.next-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:2rem;
+  color:#fff;
+  cursor:pointer;
+  background:rgba(0,0,0,.4);
+  border-radius:50%;
+  padding:10px 15px;
+}
+.close-btn{top:2rem;right:2rem;transform:none;}
+.prev-btn{left:2rem;}
+.next-btn{right:2rem;}
+
+.nav-links{
+  margin:2rem 0;
+  display:flex;
+  gap:.7rem;
+  flex-wrap:wrap;
+}
+.nav-links a{
+  color:#FF3EFF;
+  text-decoration:none;
+  border:1px solid rgba(255,62,255,.6);
+  padding:.5rem 1rem;
+  border-radius:8px;
+}
+.nav-links a:hover{
+  background:rgba(255,62,255,.3);
+  color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="lang-switch">
+  <button onclick="location.href='gallery3.html'">EN</button>
+  <button onclick="location.href='gallery3_jp.html'">JP</button>
+</div>
+
+<h1>Галерея</h1>
+
+<div class="grid" id="galleryGrid"></div>
+
+<div class="nav-links">
+  <a href="index3_ru.html">Главная</a>
+  <a href="about3_ru.html">Информация</a>
+  <a href="contact_ru.html">Контакты</a>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" onclick="closeLightbox()">×</span>
+  <span class="prev-btn" onclick="nav(-1)">❮</span>
+  <span class="next-btn" onclick="nav(1)">❯</span>
+  <div id="lightbox-content"></div>
+</div>
+
+<script>
+const grid=document.getElementById("galleryGrid");
+const box=document.getElementById("lightbox");
+const boxContent=document.getElementById("lightbox-content");
+let items=[],current=0;
+
+function pad(i){return String(i).padStart(3,"0");}
+
+function add(type,src){
+  const d=document.createElement("div");
+  d.className="grid-item";
+  d.onclick=()=>openItem(items.length);
+  const el=document.createElement(type==="img"?"img":"video");
+  el.src=src;
+  if(type==="video"){el.muted=true;el.preload="metadata";}
+  d.appendChild(el);
+  grid.appendChild(d);
+  items.push({type,src});
+}
+
+function openItem(i){
+  current=i;
+  boxContent.innerHTML="";
+  const it=items[i];
+  const el=document.createElement(it.type==="img"?"img":"video");
+  el.src=it.src;
+  if(it.type==="video"){el.controls=true;el.autoplay=true;}
+  boxContent.appendChild(el);
+  box.classList.add("active");
+}
+function closeLightbox(){box.classList.remove("active");}
+function nav(d){openItem((current+d+items.length)%items.length);}
+
+for(let i=1;i<=200;i++){
+  const n=pad(i);
+
+  const img=new Image();
+  img.onload=()=>add("img",`${n}.jpg`);
+  img.src=`${n}.jpg`;
+
+  const v=document.createElement("video");
+  v.onloadedmetadata=()=>add("video",`${n}.mp4`);
+  v.src=`${n}.mp4`;
+}
+</script>
+
+</body>
+</html>

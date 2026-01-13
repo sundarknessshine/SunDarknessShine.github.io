@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アーティストについて – SunDarknessShine</title>
+
+  <style>
+    html, body { margin:0; padding:0; font-family:"Segoe UI", sans-serif; }
+
+    body{
+      background:#000 url("background2.jpg") no-repeat center center fixed;
+      background-size:cover;
+      color:#D6A8F1;
+      text-align:center;
+      padding:2rem 1rem 3rem;
+      min-height:100vh;
+    }
+
+    .lang-switch{
+      position:absolute;
+      top:1.5rem;
+      right:1.5rem;
+      display:flex;
+      gap:.5rem;
+      z-index:5;
+    }
+
+    .lang-switch button{
+      background:rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.7);
+      color:white;
+      border-radius:6px;
+      padding:.4rem .8rem;
+      cursor:pointer;
+      transition:background .25s;
+      font-size:.9rem;
+    }
+    .lang-switch button:hover{ background:rgba(255,255,255,0.25); }
+
+    .content{
+      max-width:1100px;
+      margin:5rem auto 0;
+      text-align:center;
+    }
+
+    h1{
+      font-size:2.4rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:1.3rem;
+      color:#7A2E8E;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 25px rgba(122,46,142,0.7);
+    }
+
+    .block{
+      margin:0 auto 1.8rem;
+      max-width:1000px;
+      text-align:left;
+    }
+
+    .block h2{
+      margin:1.2rem 0 .7rem;
+      font-size:1.5rem;
+      letter-spacing:1px;
+      color:#7A2E8E;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 20px rgba(122,46,142,0.55);
+      text-transform:uppercase;
+      text-align:center;
+    }
+
+    p{
+      font-size:1.45rem;
+      line-height:1.85;
+      margin:0 0 1.1rem;
+      color:#D6A8F1;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 18px rgba(0,0,0,0.9);
+    }
+
+    ul{
+      margin:.2rem 0 1.1rem 1.2rem;
+      padding:0;
+    }
+
+    li{
+      font-size:1.45rem;
+      line-height:1.75;
+      margin:.55rem 0;
+      color:#D6A8F1;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 18px rgba(0,0,0,0.9);
+    }
+
+    a{ color:#FF3EFF; text-decoration:none; }
+    a:hover{ color:#FF7CFF; text-decoration:underline; }
+
+    .back{
+      display:inline-block;
+      margin-top:1.2rem;
+      padding:10px 16px;
+      border-radius:8px;
+      border:1px solid rgba(255,62,255,0.7);
+      color:#FF3EFF;
+      text-decoration:none;
+      text-shadow:none;
+    }
+    .back:hover{
+      background:rgba(255,62,255,0.3);
+      border-color:#FF7CFF;
+      color:white;
+    }
+
+    @media(max-width:600px){
+      h1{ font-size:1.9rem; }
+      .block h2{ font-size:1.25rem; }
+      p, li{ font-size:1.15rem; line-height:1.65; }
+      .block{ text-align:left; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="lang-switch">
+    <button onclick="location.href='about.html'">EN</button>
+    <button onclick="location.href='about_ru.html'">RU</button>
+  </div>
+
+  <div class="content">
+    <h1>SunDarknessShine</h1>
+
+    <!-- Block 1: short intro -->
+    <div class="block">
+      <h2>アーティストについて</h2>
+      <p>
+        SunDarknessShine の制作背景とプロフェッショナルなアプローチをご紹介します。
+        一つの美的感覚（ビジュアル言語）が、タトゥー、アートメイク（PMU）、カスタムテキスタイルアートに
+        どのように活かされているかをご覧ください。
+      </p>
+    </div>
+
+    <!-- Block 2: detailed story -->
+    <div class="block">
+      <h2>ストーリーと制作姿勢</h2>
+      <p>
+        はじめまして、エレナ（Elena）です。私の創作は「精密さ」「美しさ」「技術」を重ね合わせることから始まります。
+        日本の伝統や文化からインスピレーションを受けつつ、現代的な技術も取り入れながら、
+        互いに繋がる3つの分野を中心に制作しています。
+      </p>
+
+      <ul>
+        <li><strong>タトゥー：</strong> 細部へのこだわりと長期的な美しさ（持続性）を重視した高品質な施術。</li>
+        <li><strong>アートメイク（PMU）：</strong> 繊細で正確な技術で自然な美しさを引き立てます。タトゥー経験を活かし、左右対称と色の調和を丁寧に整えます。</li>
+        <li><strong>カスタムテキスタイルアート：</strong> 衣類や布を一点ものの作品へ。持ち主の個性を映す、唯一の表現として仕上げます。</li>
+      </ul>
+
+      <p>
+        私の哲学は「日本基準」のクオリティ――一本のラインまで妥協せず、あなたのイメージを深く尊重すること。
+        Ambition のマシンでタトゥーやPMUを行う時も、手作業で布にペイントを施す時も、
+        常に完成度の高い結果を目指しています。
+      </p>
+    </div>
+
+    <a href="index_jp.html" class="back">← トップへ戻る</a>
+  </div>
+
+</body>
+</html>

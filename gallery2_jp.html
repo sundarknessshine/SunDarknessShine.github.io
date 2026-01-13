@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ギャラリー – SunDarknessShine</title>
+
+<style>
+  body{
+    margin:0;
+    font-family:"Segoe UI",sans-serif;
+    background:#000 url("background2.jpg") no-repeat center center fixed;
+    background-size:cover;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  .lang-switch{
+    position:fixed;
+    top:1.5rem;
+    right:1.5rem;
+    display:flex;
+    gap:.5rem;
+    z-index:50;
+  }
+  .lang-switch button{
+    background:rgba(0,0,0,.6);
+    border:1px solid rgba(255,255,255,.7);
+    color:#fff;
+    border-radius:6px;
+    padding:.3rem .7rem;
+    cursor:pointer;
+  }
+
+  h1{
+    margin:2.6rem 0 1.5rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#7A2E8E;
+    text-shadow:
+      -2px -2px 0 #000,
+       2px -2px 0 #000,
+      -2px  2px 0 #000,
+       2px  2px 0 #000,
+       0 0 25px rgba(122,46,142,.7);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(200px, 1fr));
+    gap:10px;
+    width:min(1200px, 92vw);
+    margin-bottom:2rem;
+    padding:0 0 1rem;
+  }
+
+  @media (max-width: 1100px){
+    .grid{ grid-template-columns:repeat(3, minmax(190px, 1fr)); }
+  }
+  @media (max-width: 780px){
+    .grid{ grid-template-columns:repeat(2, minmax(170px, 1fr)); }
+  }
+  @media (max-width: 460px){
+    .grid{ grid-template-columns:repeat(1, minmax(160px, 1fr)); }
+  }
+
+  .grid-item{
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+    background:rgba(0,0,0,.25);
+    aspect-ratio: 1 / 1;
+  }
+
+  .grid-item img,
+  .grid-item video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .3s ease;
+    pointer-events:none;
+  }
+  .grid-item:hover img,
+  .grid-item:hover video{
+    transform:scale(1.05);
+  }
+
+  .nav-links{
+    margin:1.2rem 0 2.5rem;
+    display:flex;
+    gap:.7rem;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .nav-links a{
+    color:#FF3EFF;
+    text-decoration:none;
+    border:1px solid rgba(255,62,255,.6);
+    padding:.5rem 1rem;
+    border-radius:8px;
+    transition:.3s;
+  }
+  .nav-links a:hover{
+    background:rgba(255,62,255,.25);
+    color:#fff;
+  }
+
+  .lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    flex-direction:column;
+    padding:1rem;
+  }
+  .lightbox.active{ display:flex; }
+
+  .lightbox-inner{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .lightbox img,
+  .lightbox video{
+    max-width:min(1100px, 92vw);
+    max-height:82vh;
+    border-radius:12px;
+    box-shadow:0 0 28px rgba(0,0,0,.8);
+  }
+
+  .close-btn,.prev-btn,.next-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:2rem;
+    color:#fff;
+    cursor:pointer;
+    user-select:none;
+    background:rgba(0,0,0,.45);
+    border-radius:999px;
+    padding:10px 14px;
+    transition:.2s;
+  }
+  .close-btn{
+    top:1.4rem;
+    right:1.4rem;
+    transform:none;
+    font-size:2.2rem;
+    padding:6px 12px;
+  }
+  .prev-btn{ left:1.2rem; }
+  .next-btn{ right:1.2rem; }
+
+  .close-btn:hover,.prev-btn:hover,.next-btn:hover{
+    background:rgba(255,255,255,.18);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="lang-switch">
+  <button onclick="location.href='gallery2.html'">EN</button>
+  <button onclick="location.href='gallery2_ru.html'">RU</button>
+</div>
+
+<h1>ギャラリー</h1>
+
+<div class="grid" id="galleryGrid"></div>
+
+<div class="nav-links">
+  <a href="index2_jp.html">ホーム</a>
+  <a href="about2_jp.html">情報</a>
+  <a href="contact_jp.html">コンタクト</a>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" id="closeBtn">×</span>
+  <span class="prev-btn" id="prevBtn">❮</span>
+  <span class="next-btn" id="nextBtn">❯</span>
+  <div class="lightbox-inner" id="lightbox-content"></div>
+</div>
+
+<script>
+  const grid = document.getElementById("galleryGrid");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxContent = document.getElementById("lightbox-content");
+  const closeBtn = document.getElementById("closeBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  const items = [];
+  let current = 0;
+
+  // gallery2: 01..09, 010..099, 0100..0999 ...
+  function num(i){ return "0" + String(i); }
+
+  function addMedia(type, src){
+    const index = items.length;
+
+    const item = document.createElement("div");
+    item.className = "grid-item";
+    item.dataset.type = type;
+    item.dataset.src = src;
+
+    let el;
+    if(type === "image"){
+      el = document.createElement("img");
+      el.src = src;
+      el.alt = "Artwork";
+    }else{
+      el = document.createElement("video");
+      el.src = src;
+      el.muted = true;
+      el.preload = "metadata";
+      el.playsInline = true;
+      el.controls = false;
+      el.autoplay = false;
+      el.loop = false;
+
+      el.addEventListener("loadeddata", () => {
+        try { el.currentTime = 0.01; } catch(e){}
+      }, { once:true });
+    }
+
+    item.appendChild(el);
+    item.addEventListener("click", () => openLightbox(index));
+    grid.appendChild(item);
+    items.push(item);
+  }
+
+  function openLightbox(index){
+    current = index;
+    const item = items[index];
+    const type = item.dataset.type;
+    const src  = item.dataset.src;
+
+    lightboxContent.innerHTML = "";
+
+    if(type === "image"){
+      const img = document.createElement("img");
+      img.src = src;
+      lightboxContent.appendChild(img);
+    }else{
+      const v = document.createElement("video");
+      v.src = src;
+      v.controls = true;
+      v.autoplay = true;
+      v.playsInline = true;
+      lightboxContent.appendChild(v);
+    }
+
+    lightbox.classList.add("active");
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove("active");
+    lightboxContent.innerHTML = "";
+  }
+
+  function nav(dir){
+    if(!items.length) return;
+    current = (current + dir + items.length) % items.length;
+    openLightbox(current);
+  }
+
+  closeBtn.addEventListener("click", closeLightbox);
+  nextBtn.addEventListener("click", () => nav(1));
+  prevBtn.addEventListener("click", () => nav(-1));
+
+  lightbox.addEventListener("click", (e) => {
+    if(e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if(!lightbox.classList.contains("active")) return;
+    if(e.key === "Escape") closeLightbox();
+    if(e.key === "ArrowRight") nav(1);
+    if(e.key === "ArrowLeft") nav(-1);
+  });
+
+  const MAX_INDEX = 999;
+
+  for(let i=1; i<=MAX_INDEX; i++){
+    const n = num(i);
+
+    const img = new Image();
+    img.onload = () => addMedia("image", `${n}.jpg`);
+    img.src = `${n}.jpg`;
+
+    const v = document.createElement("video");
+    v.onloadedmetadata = () => addMedia("video", `${n}.mp4`);
+    v.src = `${n}.mp4`;
+  }
+</script>
+
+</body>
+</html>

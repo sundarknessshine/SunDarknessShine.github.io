@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О художнике – SunDarknessShine</title>
+
+  <style>
+    html, body { margin:0; padding:0; font-family:"Segoe UI", sans-serif; }
+
+    body{
+      background:#000 url("background2.jpg") no-repeat center center fixed;
+      background-size:cover;
+      color:#D6A8F1;
+      text-align:center;
+      padding:2rem 1rem 3rem;
+      min-height:100vh;
+    }
+
+    .lang-switch{
+      position:absolute;
+      top:1.5rem;
+      right:1.5rem;
+      display:flex;
+      gap:.5rem;
+      z-index:5;
+    }
+
+    .lang-switch button{
+      background:rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.7);
+      color:white;
+      border-radius:6px;
+      padding:.4rem .8rem;
+      cursor:pointer;
+      transition:background .25s;
+      font-size:.9rem;
+    }
+    .lang-switch button:hover{ background:rgba(255,255,255,0.25); }
+
+    .content{
+      max-width:1100px;
+      margin:5rem auto 0;
+      text-align:center;
+    }
+
+    h1{
+      font-size:2.4rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:1.3rem;
+      color:#7A2E8E;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 25px rgba(122,46,142,0.7);
+    }
+
+    /* two blocks */
+    .block{
+      margin:0 auto 1.8rem;
+      max-width:1000px;
+      text-align:left;
+    }
+
+    .block h2{
+      margin:1.2rem 0 .7rem;
+      font-size:1.5rem;
+      letter-spacing:1px;
+      color:#7A2E8E;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 20px rgba(122,46,142,0.55);
+      text-transform:uppercase;
+      text-align:center;
+    }
+
+    p{
+      font-size:1.45rem;
+      line-height:1.85;
+      margin:0 0 1.1rem;
+      color:#D6A8F1;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 18px rgba(0,0,0,0.9);
+    }
+
+    ul{
+      margin:.2rem 0 1.1rem 1.2rem;
+      padding:0;
+    }
+
+    li{
+      font-size:1.45rem;
+      line-height:1.75;
+      margin:.55rem 0;
+      color:#D6A8F1;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 18px rgba(0,0,0,0.9);
+    }
+
+    /* Magenta links */
+    a{ color:#FF3EFF; text-decoration:none; }
+    a:hover{ color:#FF7CFF; text-decoration:underline; }
+
+    .back{
+      display:inline-block;
+      margin-top:1.2rem;
+      padding:10px 16px;
+      border-radius:8px;
+      border:1px solid rgba(255,62,255,0.7);
+      color:#FF3EFF;
+      text-decoration:none;
+      text-shadow:none;
+    }
+    .back:hover{
+      background:rgba(255,62,255,0.3);
+      border-color:#FF7CFF;
+      color:white;
+    }
+
+    @media(max-width:600px){
+      h1{ font-size:1.9rem; }
+      .block h2{ font-size:1.25rem; }
+      p, li{ font-size:1.15rem; line-height:1.65; }
+      .block{ text-align:left; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="lang-switch">
+    <button onclick="location.href='about.html'">EN</button>
+    <button onclick="location.href='about_jp.html'">JP</button>
+  </div>
+
+  <div class="content">
+    <h1>SunDarknessShine</h1>
+
+    <!-- Block 1: short intro -->
+    <div class="block">
+      <h2>О художнике</h2>
+      <p>
+        Изучите творческий путь и профессиональный подход художницы уникальных визуальных образов.
+        Узнайте, как единый художественный подход применяется в татуировке, перманентном макияже
+        и кастомной росписи по ткани.
+      </p>
+    </div>
+
+    <!-- Block 2: detailed story -->
+    <div class="block">
+      <h2>История и подход</h2>
+      <p>
+        Меня зовут Елена, и мой творческий путь — это слияние точности, эстетики и мастерства.
+        Вдохновляясь японскими традициями и культурой в сочетании с современными техниками,
+        я работаю в трёх разных, но взаимосвязанных направлениях:
+      </p>
+
+      <ul>
+        <li><strong>Искусство татуировки:</strong> высококачественная татуировка с акцентом на детализацию и долговечность.</li>
+        <li><strong>Перманентный макияж:</strong> подчёркивание естественной красоты деликатными и точными процедурами. Опыт тату-мастера помогает добиваться идеальной симметрии и цветовой гармонии.</li>
+        <li><strong>Кастом по ткани:</strong> превращение вещей и текстиля в уникальные произведения прикладного искусства. Каждая работа — единственная в своём роде и отражает индивидуальность владельца.</li>
+      </ul>
+
+      <p>
+        Моя философия основана на «японском стандарте» качества — совершенстве каждой линии и уважении к вашему видению.
+        Работаю ли я машинкой Ambition над татуировкой и перманентом или расписываю ткань вручную — я всегда стремлюсь к безупречному результату.
+      </p>
+    </div>
+
+    <a href="index_ru.html" class="back">← Назад на главную</a>
+  </div>
+
+</body>
+</html>

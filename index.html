@@ -1,196 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SunDarknessShine – Official Art Site</title>
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:"Segoe UI",sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SunDarknessShine</title>
 
-    body{
-      background:#000 url("background.jpg") no-repeat center center fixed;
-      background-size:cover;
-      min-height:100vh;
-      color:#fff;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      align-items:center;
-      position:relative;
-      padding-bottom:10vh;
-      overflow-x:hidden;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
 
-    .content{
-      position:relative;
-      z-index:1;
-      text-align:center;
-      padding:1rem;
-    }
+body{
+  background:#000 url("background.jpg") no-repeat center center fixed;
+  background-size:cover;
+  min-height:100vh;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  position:relative;
+  padding-bottom:10vh;
+  overflow-x:hidden;
+}
 
-    .avatar-wrapper{
-      width:190px;
-      height:190px;
-      margin:0 auto 1.5rem;
-      position:relative;
-    }
+.top-tagline{
+  position:absolute;
+  top:1.4rem;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(980px, calc(100% - 180px));
+  padding:0 1rem;
+  text-align:center;
+  font-size:1.25rem;
+  line-height:1.45;
+  color:#7A2E8E;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 22px rgba(122,46,142,.55);
+  z-index:2;
+}
 
-    .avatar-wrapper img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius:50%;
-      border:4px solid #7A2E8E;
-      box-shadow:0 0 25px rgba(0,0,0,0.9),
-                 0 0 30px rgba(122,46,142,0.7);
-      transition:opacity .4s ease,transform .4s ease;
-      cursor:pointer;
-    }
+.lang-switch{
+  position:absolute;
+  top:1.5rem;
+  right:1.5rem;
+  display:flex;
+  gap:.5rem;
+  z-index:3;
+}
 
-    h1{
-      font-size:3.2rem;
-      margin-bottom:.5rem;
-      letter-spacing:2px;
-      color:#7A2E8E;
-      text-shadow:
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000,
-         0 0 25px rgba(122,46,142,0.6);
-    }
+.lang-switch button{
+  background:rgba(255,255,255,.15);
+  border:1px solid #ccc;
+  color:#fff;
+  border-radius:5px;
+  padding:.3rem .6rem;
+  cursor:pointer;
+  font-size:.9rem;
+  transition:.25s;
+}
+.lang-switch button:hover{background:rgba(255,255,255,.3);}
 
-    p{
-      font-size:1.4rem;
-      margin-bottom:2rem;
-      color:#7A2E8E;
-      text-shadow:
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000,
-         0 0 25px rgba(122,46,142,0.6);
-    }
+.content{text-align:center;z-index:1;padding:1rem;}
 
-    .buttons{
-      display:flex;
-      gap:1rem;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
+.avatar-wrapper{width:190px;height:190px;margin:0 auto 1.2rem;}
+.avatar-wrapper img{
+  width:100%;height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid #7A2E8E;
+  box-shadow:0 0 25px rgba(0,0,0,.9),0 0 30px rgba(122,46,142,.7);
+  cursor:pointer;
+  transition:opacity .4s ease, transform .4s ease;
+}
 
-    .btn{
-      padding:.7rem 1.4rem;
-      border:1px solid #000;
-      border-radius:25px;
-      color:#D6A8F1;
-      text-decoration:none;
-      transition:.3s;
-      background:rgba(0,0,0,0.4);
-    }
+h1{
+  font-size:3.2rem;
+  color:#7A2E8E;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 25px rgba(122,46,142,.6);
+  margin-bottom:.35rem;
+}
 
-    .btn:hover{
-      background:#7A2E8E;
-      color:#fff;
-      border-color:#7A2E8E;
-    }
+.subtitle{
+  font-size:1.55rem;
+  letter-spacing:1px;
+  color:#7A2E8E;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 22px rgba(122,46,142,.55);
+  margin-bottom:2.1rem;
+}
 
-    .lang-switch{
-      position:absolute;
-      top:1.5rem;
-      right:1.5rem;
-      display:flex;
-      gap:.5rem;
-      z-index:2;
-    }
+.buttons{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
 
-    .lang-switch button{
-      background:rgba(255,255,255,0.1);
-      border:1px solid #ccc;
-      color:#fff;
-      border-radius:5px;
-      padding:.3rem .6rem;
-      cursor:pointer;
-      transition:.3s;
-      font-size:.9rem;
-    }
+.btn{
+  padding:.8rem 1.6rem;
+  border-radius:30px;
+  border:1px solid #000;
+  background:rgba(0,0,0,.45);
+  color:#D6A8F1;
+  text-decoration:none;
+  transition:.3s;
+}
+.btn:hover{background:#7A2E8E;color:#fff;border-color:#7A2E8E;}
+.btn.secondary{padding:.65rem 1.2rem;}
 
-    .lang-switch button:hover{
-      background:rgba(255,255,255,0.3);
-    }
+footer{
+  position:absolute;
+  bottom:1rem;
+  font-size:.85rem;
+  color:#aaa;
+}
 
-    footer{
-      position:absolute;
-      bottom:1rem;
-      font-size:.9rem;
-      color:#ccc;
-      z-index:1;
-    }
-
-    @media(max-width:768px){
-      body{
-        background-attachment:scroll;
-        background-position:center 12%;
-        background-size:contain;
-        background-repeat:no-repeat;
-        background-color:#000;
-        padding-bottom:8vh;
-      }
-      h1{font-size:2rem;}
-      p{font-size:1.1rem;}
-      .avatar-wrapper{
-        width:150px;
-        height:150px;
-      }
-    }
-  </style>
+@media(max-width:768px){
+  body{
+    background-attachment:scroll;
+    background-size:contain;
+    background-position:center 20%;
+    background-repeat:no-repeat;
+    background-color:#000;
+    padding-bottom:8vh;
+  }
+  .top-tagline{
+    top:1.1rem;
+    width:calc(100% - 120px);
+    font-size:1.05rem;
+    padding:0 .8rem;
+  }
+  h1{font-size:2rem;}
+  .subtitle{font-size:1.15rem;margin-bottom:1.6rem;}
+  .avatar-wrapper{width:150px;height:150px;}
+}
+</style>
 </head>
+
 <body>
-  <div class="lang-switch">
-    <button onclick="location.href='index_ru.html'">RU</button>
-    <button onclick="location.href='index_jp.html'">JP</button>
+
+<div class="lang-switch">
+  <button onclick="location.href='index_ru.html'">RU</button>
+  <button onclick="location.href='index_jp.html'">JP</button>
+</div>
+
+<div class="top-tagline">
+  SunDarknessShine is an artist working across tattoo, permanent makeup (PMU), and custom textile art, united by a single visual language and artistic vision.
+</div>
+
+<div class="content">
+  <div class="avatar-wrapper">
+    <img id="avatar" src="artist_photo.jpg" alt="Artist portrait">
   </div>
 
-  <div class="content">
-    <div class="avatar-wrapper">
-      <img id="artistAvatar" src="artist_photo.jpg" alt="Artist portrait">
-    </div>
+  <h1>SunDarknessShine</h1>
+  <div class="subtitle">The official website of the artist</div>
 
-    <h1>SunDarknessShine</h1>
-    <p>The official website of the artist</p>
-
-    <div class="buttons">
-      <a href="gallery.html" class="btn">View Gallery</a>
-      <a href="contact.html" class="btn">Contact</a>
-      <a href="about.html" class="btn">Information</a>
-    </div>
+  <div class="buttons" style="margin-bottom:1rem;">
+    <a href="index1.html" class="btn">Custom</a>
+    <a href="index2.html" class="btn">Tattoo</a>
+    <a href="index3.html" class="btn">PMU</a>
   </div>
 
-  <footer>© 2025 SunDarknessShine</footer>
+  <div class="buttons">
+    <a href="about.html" class="btn secondary">About the Artist</a>
+    <a href="contact.html" class="btn secondary">Contacts</a>
+  </div>
+</div>
 
-  <script>
-    const avatar = document.getElementById("artistAvatar");
-    const photos = ["artist_photo.jpg","artist_avatar.jpg"];
-    let current = 0;
+<footer>© 2025 SunDarknessShine</footer>
 
-    function switchAvatar(){
-      current = (current + 1) % photos.length;
-      avatar.style.opacity = 0;
-      avatar.style.transform = "scale(0.97)";
-      setTimeout(()=>{
-        avatar.src = photos[current];
-        avatar.style.opacity = 1;
-        avatar.style.transform = "scale(1)";
-      },200);
-    }
+<script>
+  const avatar = document.getElementById("avatar");
+  const photos = ["artist_photo.jpg", "artist_avatar.jpg"];
+  let i = 0;
 
-    setInterval(switchAvatar,2000);
-    avatar.addEventListener("click",switchAvatar);
-  </script>
+  setInterval(() => {
+    i = (i + 1) % photos.length;
+    avatar.style.opacity = 0;
+    avatar.style.transform = "scale(0.97)";
+    setTimeout(() => {
+      avatar.src = photos[i];
+      avatar.style.opacity = 1;
+      avatar.style.transform = "scale(1)";
+    }, 200);
+  }, 2000);
+
+  avatar.addEventListener("click", () => {
+    i = (i + 1) % photos.length;
+    avatar.src = photos[i];
+  });
+</script>
+
 </body>
 </html>

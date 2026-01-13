@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SunDarknessShine – アーティスト公式サイト</title>
+<title>SunDarknessShine</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
+
 body{
   background:#000 url("background.jpg") no-repeat center center fixed;
   background-size:cover;
@@ -19,50 +21,134 @@ body{
   padding-bottom:10vh;
   overflow-x:hidden;
 }
-.content{position:relative;z-index:1;text-align:center;padding:1rem;}
-.avatar-wrapper{width:190px;height:190px;margin:0 auto 1.5rem;position:relative;}
+
+.top-tagline{
+  position:absolute;
+  top:1.4rem;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(980px, calc(100% - 180px));
+  padding:0 1rem;
+  text-align:center;
+  font-size:1.2rem;
+  line-height:1.45;
+  color:#7A2E8E;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 22px rgba(122,46,142,.55);
+  z-index:2;
+}
+
+.lang-switch{
+  position:absolute;
+  top:1.5rem;
+  right:1.5rem;
+  display:flex;
+  gap:.5rem;
+  z-index:3;
+}
+
+.lang-switch button{
+  background:rgba(255,255,255,.15);
+  border:1px solid #ccc;
+  color:#fff;
+  border-radius:5px;
+  padding:.3rem .6rem;
+  cursor:pointer;
+  font-size:.9rem;
+  transition:.25s;
+}
+.lang-switch button:hover{background:rgba(255,255,255,.3);}
+
+.content{text-align:center;z-index:1;padding:1rem;}
+
+.avatar-wrapper{width:190px;height:190px;margin:0 auto 1.2rem;}
 .avatar-wrapper img{
-  width:100%;height:100%;object-fit:cover;border-radius:50%;
+  width:100%;height:100%;
+  object-fit:cover;
+  border-radius:50%;
   border:4px solid #7A2E8E;
-  box-shadow:0 0 25px rgba(0,0,0,0.9),0 0 30px rgba(122,46,142,0.7);
-  transition:opacity .4s ease,transform .4s ease;cursor:pointer;
+  box-shadow:0 0 25px rgba(0,0,0,.9),0 0 30px rgba(122,46,142,.7);
+  cursor:pointer;
+  transition:opacity .4s ease, transform .4s ease;
 }
+
 h1{
-  font-size:3.2rem;margin-bottom:.5rem;color:#7A2E8E;
-  text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000,0 0 25px rgba(122,46,142,0.6);
+  font-size:3.2rem;
+  color:#7A2E8E;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 25px rgba(122,46,142,.6);
+  margin-bottom:.35rem;
 }
-p{
-  font-size:1.4rem;margin-bottom:2rem;color:#7A2E8E;
-  text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000,0 0 25px rgba(122,46,142,0.6);
+
+.subtitle{
+  font-size:1.45rem;
+  letter-spacing:1px;
+  color:#7A2E8E;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 22px rgba(122,46,142,.55);
+  margin-bottom:2.1rem;
 }
-.buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+
+.buttons{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
 .btn{
-  padding:.7rem 1.4rem;border:1px solid #000;border-radius:25px;
-  color:#D6A8F1;text-decoration:none;background:rgba(0,0,0,.4);transition:.3s;
+  padding:.8rem 1.6rem;
+  border-radius:30px;
+  border:1px solid #000;
+  background:rgba(0,0,0,.45);
+  color:#D6A8F1;
+  text-decoration:none;
+  transition:.3s;
 }
 .btn:hover{background:#7A2E8E;color:#fff;border-color:#7A2E8E;}
-.lang-switch{position:absolute;top:1.5rem;right:1.5rem;display:flex;gap:.5rem;z-index:2;}
-.lang-switch button{
-  background:rgba(255,255,255,0.1);border:1px solid #ccc;color:#fff;border-radius:5px;
-  padding:.3rem .6rem;cursor:pointer;transition:.3s;font-size:.9rem;
+.btn.secondary{padding:.65rem 1.2rem;}
+
+footer{
+  position:absolute;
+  bottom:1rem;
+  font-size:.85rem;
+  color:#aaa;
 }
-.lang-switch button:hover{background:rgba(255,255,255,0.3);}
-footer{position:absolute;bottom:1rem;color:#ccc;font-size:.9rem;z-index:1;}
+
 @media(max-width:768px){
   body{
     background-attachment:scroll;
-    background-position:center 12%;
     background-size:contain;
+    background-position:center 20%;
     background-repeat:no-repeat;
     background-color:#000;
     padding-bottom:8vh;
   }
+  .top-tagline{
+    top:1.1rem;
+    width:calc(100% - 120px);
+    font-size:1rem;
+    padding:0 .8rem;
+  }
   h1{font-size:2rem;}
-  p{font-size:1.1rem;}
+  .subtitle{font-size:1.1rem;margin-bottom:1.6rem;}
   .avatar-wrapper{width:150px;height:150px;}
 }
 </style>
 </head>
+
 <body>
 
 <div class="lang-switch">
@@ -70,32 +156,52 @@ footer{position:absolute;bottom:1rem;color:#ccc;font-size:.9rem;z-index:1;}
   <button onclick="location.href='index_ru.html'">RU</button>
 </div>
 
+<div class="top-tagline">
+  SunDarknessShine は、タトゥー、アートメイク（PMU）、カスタムテキスタイルアートを一つの美的感覚で表現するアーティストです。
+</div>
+
 <div class="content">
   <div class="avatar-wrapper">
-    <img id="artistAvatar" src="artist_photo.jpg">
+    <img id="avatar" src="artist_photo.jpg" alt="Artist portrait">
   </div>
 
   <h1>SunDarknessShine</h1>
-  <p>アーティスト公式サイト</p>
+  <div class="subtitle">アーティスト公式サイト</div>
+
+  <div class="buttons" style="margin-bottom:1rem;">
+    <a href="index1_jp.html" class="btn">カスタム</a>
+    <a href="index2_jp.html" class="btn">タトゥー</a>
+    <a href="index3_jp.html" class="btn">アートメイク</a>
+  </div>
 
   <div class="buttons">
-    <a href="gallery_jp.html" class="btn">ギャラリー</a>
-    <a href="contact_jp.html" class="btn">連絡先</a>
-    <a href="about_jp.html" class="btn">情報</a>
+    <a href="about_jp.html" class="btn secondary">アーティストについて</a>
+    <a href="contact_jp.html" class="btn secondary">コンタクト</a>
   </div>
 </div>
 
 <footer>© 2025 SunDarknessShine</footer>
 
 <script>
-const avatar=document.getElementById("artistAvatar");
-const photos=["artist_photo.jpg","artist_avatar.jpg"];
-let current=0;
-function switchAvatar(){current=(current+1)%photos.length;avatar.style.opacity=0;
-avatar.style.transform="scale(0.97)";
-setTimeout(()=>{avatar.src=photos[current];avatar.style.opacity=1;avatar.style.transform="scale(1)";},200);}
-setInterval(switchAvatar,2000);
-avatar.addEventListener("click",switchAvatar);
+  const avatar = document.getElementById("avatar");
+  const photos = ["artist_photo.jpg", "artist_avatar.jpg"];
+  let i = 0;
+
+  setInterval(() => {
+    i = (i + 1) % photos.length;
+    avatar.style.opacity = 0;
+    avatar.style.transform = "scale(0.97)";
+    setTimeout(() => {
+      avatar.src = photos[i];
+      avatar.style.opacity = 1;
+      avatar.style.transform = "scale(1)";
+    }, 200);
+  }, 2000);
+
+  avatar.addEventListener("click", () => {
+    i = (i + 1) % photos.length;
+    avatar.src = photos[i];
+  });
 </script>
 
 </body>
