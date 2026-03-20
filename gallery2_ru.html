@@ -49,6 +49,7 @@
        0 0 25px rgba(122,46,142,.7);
   }
 
+  /* ✅ ВСЕГДА 3 В РЯД */
   .grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
@@ -76,7 +77,6 @@
     transition:transform .3s ease;
     pointer-events:none;
   }
-
   .grid-item:hover img,
   .grid-item:hover video{
     transform:scale(1.05);
@@ -89,7 +89,6 @@
     flex-wrap:wrap;
     justify-content:center;
   }
-
   .nav-links a{
     color:#FF3EFF;
     text-decoration:none;
@@ -98,7 +97,6 @@
     border-radius:8px;
     transition:.3s;
   }
-
   .nav-links a:hover{
     background:rgba(255,62,255,.25);
     color:#fff;
@@ -115,7 +113,6 @@
     flex-direction:column;
     padding:1rem;
   }
-
   .lightbox.active{ display:flex; }
 
   .lightbox-inner{
@@ -144,18 +141,21 @@
     background:rgba(0,0,0,.45);
     border-radius:999px;
     padding:10px 14px;
+    transition:.2s;
   }
-
   .close-btn{
     top:1.4rem;
     right:1.4rem;
     transform:none;
     font-size:2.2rem;
+    padding:6px 12px;
   }
-
   .prev-btn{ left:1.2rem; }
   .next-btn{ right:1.2rem; }
 
+  .close-btn:hover,.prev-btn:hover,.next-btn:hover{
+    background:rgba(255,255,255,.18);
+  }
 </style>
 </head>
 
@@ -194,10 +194,8 @@ const nextBtn = document.getElementById("nextBtn");
 const items = [];
 let current = 0;
 
-/* 🔥 НУМЕРАЦИЯ 01, 02, 010... */
-function num(i){
-  return String(i).padStart(2,"0");
-}
+/* 🔥 ВАЖНО — НЕ МЕНЯТЬ */
+function num(i){ return "0" + String(i); }
 
 function addMedia(type, src){
   const index = items.length;
@@ -217,31 +215,31 @@ function addMedia(type, src){
     el.muted = true;
     el.preload = "metadata";
     el.playsInline = true;
+
+    el.addEventListener("loadeddata", () => {
+      try { el.currentTime = 0.01; } catch(e){}
+    }, { once:true });
   }
 
   item.appendChild(el);
   item.addEventListener("click", () => openLightbox(index));
-
   grid.appendChild(item);
   items.push(item);
 }
 
 function openLightbox(index){
   current = index;
-
   const item = items[index];
-  const type = item.dataset.type;
-  const src  = item.dataset.src;
 
   lightboxContent.innerHTML = "";
 
-  if(type === "image"){
+  if(item.dataset.type === "image"){
     const img = document.createElement("img");
-    img.src = src;
+    img.src = item.dataset.src;
     lightboxContent.appendChild(img);
   }else{
     const v = document.createElement("video");
-    v.src = src;
+    v.src = item.dataset.src;
     v.controls = true;
     v.autoplay = true;
     v.playsInline = true;
@@ -257,29 +255,26 @@ function closeLightbox(){
 }
 
 function nav(dir){
-  if(!items.length) return;
   current = (current + dir + items.length) % items.length;
   openLightbox(current);
 }
 
-/* ✅ ВСЕ ОБРАБОТЧИКИ */
-closeBtn.addEventListener("click", closeLightbox);
-nextBtn.addEventListener("click", () => nav(1));
-prevBtn.addEventListener("click", () => nav(-1));
+closeBtn.onclick = closeLightbox;
+nextBtn.onclick = () => nav(1);
+prevBtn.onclick = () => nav(-1);
 
-lightbox.addEventListener("click", (e)=>{
+lightbox.onclick = e=>{
   if(e.target === lightbox) closeLightbox();
-});
+};
 
-document.addEventListener("keydown", (e)=>{
+document.addEventListener("keydown", e=>{
   if(!lightbox.classList.contains("active")) return;
-  if(e.key === "Escape") closeLightbox();
-  if(e.key === "ArrowRight") nav(1);
-  if(e.key === "ArrowLeft") nav(-1);
+  if(e.key==="Escape") closeLightbox();
+  if(e.key==="ArrowRight") nav(1);
+  if(e.key==="ArrowLeft") nav(-1);
 });
 
-/* загрузка */
-for(let i=1;i<=999;i++){
+for(let i=1; i<=999; i++){
   const n = num(i);
 
   const img = new Image();

@@ -27,25 +27,43 @@
     gap:.5rem;
     z-index:50;
   }
+  .lang-switch button{
+    background:rgba(0,0,0,.6);
+    border:1px solid rgba(255,255,255,.7);
+    color:#fff;
+    border-radius:6px;
+    padding:.3rem .7rem;
+    cursor:pointer;
+  }
 
   h1{
     margin:2.6rem 0 1.5rem;
+    letter-spacing:2px;
     text-transform:uppercase;
     color:#7A2E8E;
+    text-shadow:
+      -2px -2px 0 #000,
+       2px -2px 0 #000,
+      -2px  2px 0 #000,
+       2px  2px 0 #000,
+       0 0 25px rgba(122,46,142,.7);
   }
 
   .grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(3, 1fr);
     gap:10px;
-    width:min(1200px,92vw);
+    width:min(1200px, 92vw);
+    margin-bottom:2rem;
+    padding:0 0 1rem;
   }
 
   .grid-item{
-    aspect-ratio:1/1;
+    cursor:pointer;
     overflow:hidden;
     border-radius:10px;
-    cursor:pointer;
+    background:rgba(0,0,0,.25);
+    aspect-ratio:1/1;
   }
 
   .grid-item img,
@@ -69,10 +87,9 @@
   .lightbox.active{display:flex;}
 
   .lightbox-inner{
+    width:100%;
     display:flex;
     justify-content:center;
-    align-items:center;
-    width:100%;
   }
 
   .lightbox img,
@@ -102,8 +119,20 @@
 
 <body>
 
+<div class="lang-switch">
+  <button onclick="location.href='gallery1.html'">EN</button>
+  <button onclick="location.href='gallery1_jp.html'">JP</button>
+</div>
+
 <h1>Галерея</h1>
+
 <div class="grid" id="galleryGrid"></div>
+
+<div class="nav-links">
+  <a href="index1_ru.html">Главная</a>
+  <a href="about1_ru.html">Информация</a>
+  <a href="contact_ru.html">Контакты</a>
+</div>
 
 <div class="lightbox" id="lightbox">
   <span class="close-btn" id="closeBtn">×</span>
@@ -116,7 +145,6 @@
 const grid = document.getElementById("galleryGrid");
 const lightbox = document.getElementById("lightbox");
 const lightboxContent = document.getElementById("lightbox-content");
-
 const closeBtn = document.getElementById("closeBtn");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
@@ -124,27 +152,35 @@ const nextBtn = document.getElementById("nextBtn");
 const items = [];
 let current = 0;
 
+/* 🔥 натуральные числа */
 function num(i){ return i; }
 
+/* остальной JS НЕ ТРОГАЕМ */
 function addMedia(type, src){
   const index = items.length;
-
   const item = document.createElement("div");
   item.className = "grid-item";
   item.dataset.type = type;
   item.dataset.src = src;
 
-  let el = document.createElement(type==="image"?"img":"video");
-  el.src = src;
-
-  if(type==="video"){
+  let el;
+  if(type === "image"){
+    el = document.createElement("img");
+    el.src = src;
+  }else{
+    el = document.createElement("video");
+    el.src = src;
     el.muted = true;
     el.preload = "metadata";
+    el.playsInline = true;
+
+    el.addEventListener("loadeddata", () => {
+      try { el.currentTime = 0.01; } catch(e){}
+    }, { once:true });
   }
 
   item.appendChild(el);
   item.addEventListener("click", () => openLightbox(index));
-
   grid.appendChild(item);
   items.push(item);
 }
@@ -152,59 +188,64 @@ function addMedia(type, src){
 function openLightbox(index){
   current = index;
   const item = items[index];
+  const type = item.dataset.type;
+  const src  = item.dataset.src;
 
-  lightboxContent.innerHTML="";
+  lightboxContent.innerHTML = "";
 
-  const el = document.createElement(item.dataset.type==="image"?"img":"video");
-  el.src = item.dataset.src;
-
-  if(item.dataset.type==="video"){
-    el.controls = true;
-    el.autoplay = true;
+  if(type === "image"){
+    const img = document.createElement("img");
+    img.src = src;
+    lightboxContent.appendChild(img);
+  }else{
+    const v = document.createElement("video");
+    v.src = src;
+    v.controls = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    lightboxContent.appendChild(v);
   }
 
-  lightboxContent.appendChild(el);
   lightbox.classList.add("active");
 }
 
 function closeLightbox(){
   lightbox.classList.remove("active");
-  lightboxContent.innerHTML="";
+  lightboxContent.innerHTML = "";
 }
 
 function nav(dir){
-  if(!items.length) return;
   current = (current + dir + items.length) % items.length;
   openLightbox(current);
 }
 
-/* ✅ ВОЗВРАЩАЕМ ВСЕ ОБРАБОТЧИКИ */
 closeBtn.addEventListener("click", closeLightbox);
 nextBtn.addEventListener("click", () => nav(1));
 prevBtn.addEventListener("click", () => nav(-1));
 
-lightbox.addEventListener("click", (e)=>{
-  if(e.target===lightbox) closeLightbox();
+lightbox.addEventListener("click", (e) => {
+  if(e.target === lightbox) closeLightbox();
 });
 
-document.addEventListener("keydown", (e)=>{
+document.addEventListener("keydown", (e) => {
   if(!lightbox.classList.contains("active")) return;
-  if(e.key==="Escape") closeLightbox();
-  if(e.key==="ArrowRight") nav(1);
-  if(e.key==="ArrowLeft") nav(-1);
+  if(e.key === "Escape") closeLightbox();
+  if(e.key === "ArrowRight") nav(1);
+  if(e.key === "ArrowLeft") nav(-1);
 });
 
-/* загрузка */
-for(let i=1;i<=999;i++){
-  const n=num(i);
+const MAX_INDEX = 999;
 
-  const img=new Image();
-  img.onload=()=>addMedia("image",`${n}.jpg`);
-  img.src=`${n}.jpg`;
+for(let i=1; i<=MAX_INDEX; i++){
+  const n = num(i);
 
-  const v=document.createElement("video");
-  v.onloadedmetadata=()=>addMedia("video",`${n}.mp4`);
-  v.src=`${n}.mp4`;
+  const img = new Image();
+  img.onload = () => addMedia("image", `${n}.jpg`);
+  img.src = `${n}.jpg`;
+
+  const v = document.createElement("video");
+  v.onloadedmetadata = () => addMedia("video", `${n}.mp4`);
+  v.src = `${n}.mp4`;
 }
 </script>
 
