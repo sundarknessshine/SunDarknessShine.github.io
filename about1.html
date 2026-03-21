@@ -62,6 +62,21 @@ p{
     0 0 18px rgba(0,0,0,0.9);
 }
 
+   .block h2{
+      margin:1.0rem 0 .7rem;
+      font-size:1.5rem;
+      letter-spacing:1px;
+      color:#7A2E8E;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 20px rgba(122,46,142,0.55);
+      text-transform:uppercase;
+      text-align:center;
+    }
+
 /* Magenta links */
 a{color:#FF3EFF;text-decoration:none;}
 a:hover{color:#FF7CFF;text-decoration:underline;}
@@ -80,10 +95,11 @@ a:hover{color:#FF7CFF;text-decoration:underline;}
   border-color:#FF7CFF;
   color:white;
 }
-
-@media(max-width:600px){
- h1{font-size:1.9rem;}
- p{font-size:1.2rem;}
+ @media(max-width:600px){
+ h1{ font-size:1.9rem; }
+ .block h2{ font-size:1.25rem; }
+ p, li{ font-size:1.15rem; line-height:1.65; }
+ .block{ text-align:left; }
 }
 </style>
 </head>
@@ -99,7 +115,8 @@ a:hover{color:#FF7CFF;text-decoration:underline;}
 
 <h1>Custom</h1>
 
-<p>Information</p>
+  <div class="block">
+      <h2>Information</h2>
 
 <p>Each artwork is created individually and exists as a unique, one-of-a-kind original piece. The author reserves the right to publish artworks.</p>
 
