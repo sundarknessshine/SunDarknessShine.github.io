@@ -3,122 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery – SunDarknessShine</title>
+<title>Gallery – Custom | SunDarknessShine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
 <style>
-  body{
-    margin:0;
-    font-family:"Segoe UI",sans-serif;
-    background:#000 url("background2.jpg") no-repeat center center fixed;
-    background-size:cover;
-    color:#fff;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    min-height:100vh;
-    overflow-x:hidden;
-  }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-  .lang-switch{
-    position:fixed;
-    top:1.5rem;
-    right:1.5rem;
-    display:flex;
-    gap:.5rem;
-    z-index:50;
-  }
-  .lang-switch button{
-    background:rgba(0,0,0,.6);
-    border:1px solid rgba(255,255,255,.7);
-    color:#fff;
-    border-radius:6px;
-    padding:.3rem .7rem;
-    cursor:pointer;
-  }
+body {
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:#000 url("background2.jpg") no-repeat center center fixed;
+  background-size:cover;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-  h1{
-    margin:2.6rem 0 1.5rem;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:#7A2E8E;
-    text-shadow:
-      -2px -2px 0 #000,
-       2px -2px 0 #000,
-      -2px  2px 0 #000,
-       2px  2px 0 #000,
-       0 0 25px rgba(122,46,142,.7);
-  }
+/* Переключатель языка */
+.lang-switch {
+  position:fixed;
+  top:1.3rem;
+  right:1.3rem;
+  display:flex;
+  gap:.5rem;
+  z-index:50;
+}
+.lang-switch button {
+  background:rgba(0,0,0,.6);
+  border:1px solid rgba(255,255,255,.7);
+  color:#fff;
+  border-radius:6px;
+  padding:.35rem .8rem;
+  cursor:pointer;
+  font-size:.9rem;
+}
 
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:10px;
-    width:min(1200px, 92vw);
-    margin-bottom:2rem;
-  }
+/* Заголовок */
+h1 {
+  margin:2.8rem 0 0.6rem;
+  font-family:'Cinzel', serif;
+  font-size:3.2rem;
+  color:#E2C275;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 30px rgba(226,194,117,.85);
+  letter-spacing:3px;
+}
 
-  .grid-item{
-    cursor:pointer;
-    overflow:hidden;
-    border-radius:10px;
-    background:rgba(0,0,0,.25);
-    aspect-ratio:1/1;
-  }
+/* Подзаголовок */
+.subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2.1rem;
+  color:#D8B4E8;
+  margin-bottom:2.2rem;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 25px rgba(216,180,232,.75);
+}
 
-  .grid-item img,
-  .grid-item video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    pointer-events:none;
-  }
+/* Сетка */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:12px;
+  width:min(1200px, 92vw);
+  margin-bottom:2.5rem;
+  padding:0 15px;
+}
 
-  .nav-links{
-    margin:1.2rem 0 2.5rem;
-    display:flex;
-    gap:.7rem;
-  }
+.grid-item {
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+  background:rgba(0,0,0,.25);
+  aspect-ratio: 1 / 1;
+}
 
-  .nav-links a{
-    color:#FF3EFF;
-    text-decoration:none;
-    border:1px solid rgba(255,62,255,.6);
-    padding:.5rem 1rem;
-    border-radius:8px;
-  }
+.grid-item img,
+.grid-item video {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .4s ease;
+}
 
-  .lightbox{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.92);
-    display:none;
-    justify-content:center;
-    align-items:center;
-  }
-  .lightbox.active{display:flex;}
+.grid-item:hover img,
+.grid-item:hover video {
+  transform:scale(1.06);
+}
 
-  .lightbox img,
-  .lightbox video{
-    max-width:90vw;
-    max-height:80vh;
-  }
+/* Навигация */
+.nav-links {
+  margin:1rem 0 3rem;
+  display:flex;
+  gap:1.2rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.nav-links a {
+  color:#D8B4E8;
+  text-decoration:none;
+  border:1px solid rgba(216,180,232,.6);
+  padding:.7rem 1.8rem;
+  border-radius:30px;
+  transition:.3s;
+  font-size:1.05rem;
+}
+.nav-links a:hover {
+  background:rgba(216,180,232,.25);
+  color:#fff;
+}
 
-  .close-btn,.prev-btn,.next-btn{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:2rem;
-    color:#fff;
-    cursor:pointer;
-  }
+/* Lightbox */
+.lightbox {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.94);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  padding:1rem;
+}
+.lightbox.active { display:flex; }
 
-  .close-btn{
-    top:20px;
-    right:20px;
-    transform:none;
-  }
-  .prev-btn{left:20px;}
-  .next-btn{right:20px;}
+.lightbox-inner {
+  position:relative;
+  max-width:min(1100px, 92vw);
+}
+
+.lightbox img,
+.lightbox video {
+  max-width:100%;
+  max-height:84vh;
+  border-radius:14px;
+  box-shadow:0 0 40px rgba(0,0,0,.9);
+}
+
+/* Стрелки в lightbox */
+.close-btn, .prev-btn, .next-btn {
+  position:absolute;
+  font-size:2.8rem;
+  color:#D8B4E8;
+  cursor:pointer;
+  background:rgba(0,0,0,.7);
+  border-radius:50%;
+  width:60px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .25s, color .25s;
+}
+.close-btn { top:20px; right:20px; font-size:3rem; }
+.prev-btn { left:30px; top:50%; transform:translateY(-50%); }
+.next-btn { right:30px; top:50%; transform:translateY(-50%); }
+
+.close-btn:hover, .prev-btn:hover, .next-btn:hover {
+  background:rgba(216,180,232,.35);
+  color:#fff;
+}
 </style>
 </head>
 
@@ -130,112 +188,117 @@
 </div>
 
 <h1>Gallery</h1>
+<div class="subtitle">Custom</div>
 
 <div class="grid" id="galleryGrid"></div>
 
 <div class="nav-links">
-  <a href="index1.html">Back</a>
   <a href="about1.html">Information</a>
   <a href="contact.html">Contacts</a>
+  <a href="index1.html">Back</a>
 </div>
 
 <div class="lightbox" id="lightbox">
   <span class="close-btn" id="closeBtn">×</span>
   <span class="prev-btn" id="prevBtn">❮</span>
   <span class="next-btn" id="nextBtn">❯</span>
-  <div id="lightbox-content"></div>
+  <div class="lightbox-inner" id="lightbox-content"></div>
 </div>
 
 <script>
-const grid=document.getElementById("galleryGrid");
-const lightbox=document.getElementById("lightbox");
-const content=document.getElementById("lightbox-content");
+const grid = document.getElementById("galleryGrid");
+const lightbox = document.getElementById("lightbox");
+const lightboxContent = document.getElementById("lightbox-content");
+const closeBtn = document.getElementById("closeBtn");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-const closeBtn=document.getElementById("closeBtn");
-const prevBtn=document.getElementById("prevBtn");
-const nextBtn=document.getElementById("nextBtn");
+const items = [];
+let current = 0;
 
-const items=[];
-let current=0;
-
-function num(i){ return String(i); }
-
-function addMedia(type,src){
-  const index=items.length;
-
-  const div=document.createElement("div");
-  div.className="grid-item";
-  div.dataset.type=type;
-  div.dataset.src=src;
+function addMedia(type, src) {
+  const index = items.length;
+  const div = document.createElement("div");
+  div.className = "grid-item";
+  div.dataset.type = type;
+  div.dataset.src = src;
 
   let el;
-  if(type==="image"){
-    el=document.createElement("img");
-    el.src=src;
-  }else{
-    el=document.createElement("video");
-    el.src=src;
-    el.muted=true;
-    el.playsInline=true;
-    el.preload="metadata";
+  if (type === "image") {
+    el = document.createElement("img");
+    el.src = src;
+  } else {
+    el = document.createElement("video");
+    el.src = src;
+    el.muted = true;
+    el.preload = "metadata";
+    el.playsInline = true;
   }
 
   div.appendChild(el);
-  div.onclick=()=>open(index);
-
+  div.addEventListener("click", () => openLightbox(index));
   grid.appendChild(div);
   items.push(div);
 }
 
-function open(index){
-  current=index;
-  const item=items[index];
+function openLightbox(index) {
+  current = index;
+  const item = items[index];
 
-  content.innerHTML="";
+  lightboxContent.innerHTML = "";
 
-  if(item.dataset.type==="image"){
-    const img=document.createElement("img");
-    img.src=item.dataset.src;
-    content.appendChild(img);
-  }else{
-    const v=document.createElement("video");
-    v.src=item.dataset.src;
-    v.controls=true;
-    v.autoplay=true;
-    content.appendChild(v);
+  if (item.dataset.type === "image") {
+    const img = document.createElement("img");
+    img.src = item.dataset.src;
+    lightboxContent.appendChild(img);
+  } else {
+    const v = document.createElement("video");
+    v.src = item.dataset.src;
+    v.controls = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    lightboxContent.appendChild(v);
   }
 
   lightbox.classList.add("active");
 }
 
-function close(){
+function closeLightbox() {
   lightbox.classList.remove("active");
-  content.innerHTML="";
+  lightboxContent.innerHTML = "";
 }
 
-function nav(dir){
-  current=(current+dir+items.length)%items.length;
-  open(current);
+function nav(dir) {
+  current = (current + dir + items.length) % items.length;
+  openLightbox(current);
 }
 
-closeBtn.onclick=close;
-nextBtn.onclick=()=>nav(1);
-prevBtn.onclick=()=>nav(-1);
+closeBtn.onclick = closeLightbox;
+prevBtn.onclick = () => nav(-1);
+nextBtn.onclick = () => nav(1);
 
-lightbox.onclick=e=>{
-  if(e.target===lightbox) close();
+lightbox.onclick = e => {
+  if (e.target === lightbox) closeLightbox();
 };
 
-for(let i=1;i<=999;i++){
-  const n=num(i);
+document.addEventListener("keydown", e => {
+  if (!lightbox.classList.contains("active")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") nav(1);
+  if (e.key === "ArrowLeft") nav(-1);
+});
 
-  const img=new Image();
-  img.onload=()=>addMedia("image",`${n}.jpg`);
-  img.src=`${n}.jpg`;
+/* Загрузка натуральных номеров */
+for (let i = 1; i <= 999; i++) {
+  const n = String(i);
 
-  const v=document.createElement("video");
-  v.onloadedmetadata=()=>addMedia("video",`${n}.mp4`);
-  v.src=`${n}.mp4`;
+  const img = new Image();
+  img.onload = () => addMedia("image", `${n}.jpg`);
+  img.src = `${n}.jpg`;
+
+  const v = document.createElement("video");
+  v.onloadedmetadata = () => addMedia("video", `${n}.mp4`);
+  v.src = `${n}.mp4`;
 }
 </script>
 
