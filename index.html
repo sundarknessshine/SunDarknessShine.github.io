@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SunDarknessShine</title>
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
 <style>
@@ -14,6 +15,7 @@ body {
   background:#000 url("background.jpg") no-repeat center center fixed;
   background-size:cover;
   min-height:100vh;
+  color:#fff;
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
@@ -23,90 +25,103 @@ body {
   overflow-x:hidden;
 }
 
-/* Верхняя надпись */
 .top-tagline {
   position:absolute;
-  top:1.35rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;                    /* надёжно по центру */
-  max-width: 920px;
-  text-align: center;
+  top:1.4rem;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(980px, calc(100% - 180px));
+  padding:0 1rem;
+  text-align:center;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1.48;
-  color: #D8B4E8;
-  text-shadow:
-    -1.4px -1.4px 0 #000,
-     1.4px -1.4px 0 #000,
-    -1.4px  1.4px 0 #000,
-     1.4px  1.4px 0 #000,
-     0 0 20px rgba(216, 180, 232, 0.8);
-  z-index: 2;
-  padding: 0 15px;               /* небольшая защита от краёв */
-}
-
-/* Главный заголовок */
-h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 3.25rem;
-  color: #E2C275;
-  text-shadow:
-    -1.7px -1.7px 0 #000,
-     1.7px -1.7px 0 #000,
-    -1.7px  1.7px 0 #000,
-     1.7px  1.7px 0 #000,
-     0 0 30px rgba(226, 194, 117, 0.9);
-  margin: 0.6rem 0 0.4rem;
-  letter-spacing: 2px;
-  text-align: center;
-  width: 100%;
-  max-width: 100%;
-  padding: 0 20px;               /* важная защита на узких экранах */
-}
-
-/* Подзаголовок */
-.subtitle {
-  font-size: 1.55rem;
-  color: #D8B4E8;
+  font-size:1.25rem;
+  line-height:1.45;
+  color:#D8B4E8;                    /* нежно-сиреневый */
   text-shadow:
     -1.5px -1.5px 0 #000,
      1.5px -1.5px 0 #000,
     -1.5px  1.5px 0 #000,
      1.5px  1.5px 0 #000,
-     0 0 20px rgba(216, 180, 232, 0.75);
-  margin-bottom: 2.1rem;
-  text-align: center;
+     0 0 22px rgba(216, 180, 232, 0.85);
+  z-index:2;
 }
 
-/* Кнопки языка */
 .lang-switch {
   position:absolute;
-  top:1.1rem;
-  right:1.1rem;
+  top:1.5rem;
+  right:1.5rem;
   display:flex;
-  gap:0.35rem;
-  z-index:10;
+  gap:.5rem;
+  z-index:3;
 }
+
 .lang-switch button {
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.35);
+  background:rgba(255,255,255,.15);
+  border:1px solid #ccc;
   color:#fff;
   border-radius:5px;
-  padding:0.25rem 0.58rem;
-  font-size:0.83rem;
+  padding:.3rem .6rem;
   cursor:pointer;
+  font-size:.9rem;
+  transition:.25s;
 }
 .lang-switch button:hover { background:rgba(255,255,255,.3); }
 
-/* Кнопки меню */
-.buttons { 
-  display:flex; 
-  gap:1rem; 
-  flex-wrap:wrap; 
-  justify-content:center; 
+.content { text-align:center; z-index:1; padding:1rem; }
+
+.avatar-wrapper {
+  width:190px;
+  height:190px;
+  margin:0 auto 1.2rem;
 }
+.avatar-wrapper img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid #7A2E8E;
+  box-shadow:0 0 25px rgba(0,0,0,.9), 0 0 30px rgba(122,46,142,.7);
+  cursor:pointer;
+  transition:opacity .4s ease, transform .4s ease;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size:3.2rem;
+  color:#E2C275;                    /* золотистый */
+  text-shadow:
+    -1.6px -1.6px 0 #000,
+     1.6px -1.6px 0 #000,
+    -1.6px  1.6px 0 #000,
+     1.6px  1.6px 0 #000,
+     0 0 28px rgba(226, 194, 117, 0.9);
+  margin-bottom:.35rem;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size:1.55rem;
+  letter-spacing:1px;
+  color:#D8B4E8;                    /* нежно-сиреневый */
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 22px rgba(216, 180, 232, 0.8);
+  margin-bottom:2.1rem;
+}
+
+.buttons {
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
 .btn {
   padding:.8rem 1.6rem;
   border-radius:30px;
@@ -121,21 +136,8 @@ h1 {
   color:#fff;
   border-color:#7A2E8E;
 }
-.btn.secondary { padding:.65rem 1.25rem; }
-
-.content { text-align:center; z-index:1; padding:1rem; }
-
-.avatar-wrapper {
-  width:190px;
-  height:190px;
-  margin:0 auto 1.2rem;
-}
-.avatar-wrapper img {
-  width:100%; height:100%; object-fit:cover; border-radius:50%;
-  border:4px solid #7A2E8E;
-  box-shadow:0 0 25px rgba(0,0,0,.9), 0 0 30px rgba(122,46,142,.7);
-  cursor:pointer;
-  transition:opacity .4s ease, transform .4s ease;
+.btn.secondary {
+  padding:.65rem 1.2rem;
 }
 
 footer {
@@ -147,38 +149,39 @@ footer {
 
 /* ==================== МОБИЛЬНАЯ ВЕРСИЯ ==================== */
 @media(max-width:768px) {
+  body {
+    background-attachment:scroll;
+    background-size:contain;
+    background-position:center 20%;
+    background-repeat:no-repeat;
+    background-color:#000;
+    padding-bottom:8vh;
+  }
   .top-tagline {
-    top:1.05rem;
-    font-size:1.04rem;
-    width: 90%;
-    padding: 0 18px;
+    top:1.1rem;
+    width:calc(100% - 120px);
+    font-size:0.98rem;
+    line-height:1.42;
+    padding:0 .8rem;
   }
-  h1 {
-    font-size: 2.18rem;           /* уменьшил, чтобы точно влазило */
-    letter-spacing: 1.3px;
-    padding: 0 20px;
+  h1 { 
+    font-size:2.15rem;
+    letter-spacing: 1.6px;
   }
-  .subtitle {
-    font-size: 1.13rem;
-    margin-bottom:1.75rem;
+  .subtitle { 
+    font-size:1.12rem;
+    margin-bottom:1.65rem; 
   }
   .avatar-wrapper { width:150px; height:150px; }
 }
 
 /* ==================== БОЛЬШИЕ ЭКРАНЫ ==================== */
 @media(min-width:1200px) {
-  .top-tagline { font-size: 2.2rem; }
-  h1 { 
-    font-size: 4.85rem; 
-    letter-spacing: 4px;
-  }
-  .subtitle { font-size: 2.2rem; }
-  
-  .btn {
-    padding: 1rem 2.1rem;
-    font-size: 1.16rem;
-  }
+  h1 { font-size:3.8rem; }
+  .subtitle { font-size:1.75rem; }
+  .top-tagline { font-size:1.38rem; }
 }
+
 </style>
 </head>
 
@@ -226,16 +229,4 @@ footer {
     avatar.style.transform = "scale(0.97)";
     setTimeout(() => {
       avatar.src = photos[i];
-      avatar.style.opacity = 1;
-      avatar.style.transform = "scale(1)";
-    }, 200);
-  }, 2000);
-
-  avatar.addEventListener("click", () => {
-    i = (i + 1) % photos.length;
-    avatar.src = photos[i];
-  });
-</script>
-
-</body>
-</html>
+     
