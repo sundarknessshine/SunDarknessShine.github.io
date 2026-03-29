@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SunDarknessShine</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
-body{
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
   background:#000 url("background.jpg") no-repeat center center fixed;
   background-size:cover;
   min-height:100vh;
@@ -22,93 +24,101 @@ body{
   overflow-x:hidden;
 }
 
-.top-tagline{
+/* Верхний текст */
+.top-tagline {
   position:absolute;
   top:1.4rem;
   left:50%;
   transform:translateX(-50%);
-  width:min(980px, calc(100% - 180px));
+  width:min(980px, calc(100% - 160px));
   padding:0 1rem;
   text-align:center;
-  font-size:1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size:1.22rem;
   line-height:1.45;
-  color:#7A2E8E;
+  color:#D8B4E8;
   text-shadow:
-    -2px -2px 0 #000,
-     2px -2px 0 #000,
-    -2px  2px 0 #000,
-     2px  2px 0 #000,
-     0 0 22px rgba(122,46,142,.55);
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 22px rgba(216, 180, 232, 0.85);
   z-index:2;
 }
 
-.lang-switch{
+/* Переключатель языков */
+.lang-switch {
   position:absolute;
-  top:1.5rem;
-  right:1.5rem;
+  top:1.2rem;
+  right:1.2rem;
   display:flex;
   gap:.5rem;
-  z-index:3;
+  z-index:10;
 }
 
-.lang-switch button{
+.lang-switch button {
   background:rgba(255,255,255,.15);
   border:1px solid #ccc;
   color:#fff;
   border-radius:5px;
-  padding:.3rem .6rem;
+  padding:.28rem .65rem;
   cursor:pointer;
-  font-size:.9rem;
-  transition:.25s;
+  font-size:.85rem;
 }
-.lang-switch button:hover{background:rgba(255,255,255,.3);}
+.lang-switch button:hover { background:rgba(255,255,255,.3); }
 
-.content{text-align:center;z-index:1;padding:1rem;}
+.content { text-align:center; z-index:1; padding:1rem; }
 
-.avatar-wrapper{width:190px;height:190px;margin:0 auto 1.2rem;}
-.avatar-wrapper img{
-  width:100%;height:100%;
-  object-fit:cover;
-  border-radius:50%;
+.avatar-wrapper {
+  width:190px;
+  height:190px;
+  margin:0 auto 1.2rem;
+}
+.avatar-wrapper img {
+  width:100%; height:100%; object-fit:cover; border-radius:50%;
   border:4px solid #7A2E8E;
-  box-shadow:0 0 25px rgba(0,0,0,.9),0 0 30px rgba(122,46,142,.7);
+  box-shadow:0 0 25px rgba(0,0,0,.9), 0 0 30px rgba(122,46,142,.7);
   cursor:pointer;
   transition:opacity .4s ease, transform .4s ease;
 }
 
-h1{
+h1 {
+  font-family: 'Cinzel', serif;
   font-size:3.2rem;
-  color:#7A2E8E;
+  color:#E2C275;
   text-shadow:
-    -2px -2px 0 #000,
-     2px -2px 0 #000,
-    -2px  2px 0 #000,
-     2px  2px 0 #000,
-     0 0 25px rgba(122,46,142,.6);
-  margin-bottom:.35rem;
+    -1.6px -1.6px 0 #000,
+     1.6px -1.6px 0 #000,
+    -1.6px  1.6px 0 #000,
+     1.6px  1.6px 0 #000,
+     0 0 28px rgba(226, 194, 117, 0.9);
+  margin-bottom:.4rem;
+  letter-spacing:2px;
 }
 
-.subtitle{
-  font-size:1.45rem;
-  letter-spacing:1px;
-  color:#7A2E8E;
+.subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size:1.52rem;
+  color:#D8B4E8;
   text-shadow:
-    -2px -2px 0 #000,
-     2px -2px 0 #000,
-    -2px  2px 0 #000,
-     2px  2px 0 #000,
-     0 0 22px rgba(122,46,142,.55);
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 22px rgba(216, 180, 232, 0.8);
   margin-bottom:2.1rem;
 }
 
-.buttons{
+.buttons {
   display:flex;
   gap:1rem;
   flex-wrap:wrap;
   justify-content:center;
 }
 
-.btn{
+.btn {
   padding:.8rem 1.6rem;
   border-radius:30px;
   border:1px solid #000;
@@ -117,34 +127,41 @@ h1{
   text-decoration:none;
   transition:.3s;
 }
-.btn:hover{background:#7A2E8E;color:#fff;border-color:#7A2E8E;}
-.btn.secondary{padding:.65rem 1.2rem;}
+.btn:hover { background:#7A2E8E; color:#fff; border-color:#7A2E8E; }
+.btn.secondary { padding:.65rem 1.2rem; }
 
-footer{
+footer {
   position:absolute;
   bottom:1rem;
   font-size:.85rem;
   color:#aaa;
 }
 
-@media(max-width:768px){
-  body{
-    background-attachment:scroll;
-    background-size:contain;
-    background-position:center 20%;
-    background-repeat:no-repeat;
-    background-color:#000;
-    padding-bottom:8vh;
+/* ==================== МОБИЛЬНАЯ ==================== */
+@media(max-width:768px) {
+  .top-tagline {
+    top: 2.4rem;
+    width:calc(100% - 100px);
+    font-size:1.0rem;
+    padding:0 12px;
   }
-  .top-tagline{
-    top:1.1rem;
-    width:calc(100% - 120px);
-    font-size:1rem;
-    padding:0 .8rem;
+  h1 { font-size:2.1rem; letter-spacing:1.4px; }
+  .subtitle { font-size:1.12rem; margin-bottom:1.6rem; }
+  .avatar-wrapper { width:150px; height:150px; }
+  .lang-switch { top:0.9rem; right:0.9rem; }
+}
+
+/* ==================== КОМПЬЮТЕР ==================== */
+@media(min-width:1200px) {
+  .top-tagline { 
+    font-size: 2.25rem; 
+    top: 1.7rem;
   }
-  h1{font-size:2rem;}
-  .subtitle{font-size:1.1rem;margin-bottom:1.6rem;}
-  .avatar-wrapper{width:150px;height:150px;}
+  h1 { font-size: 4.1rem; letter-spacing: 3.5px; }
+  .subtitle { font-size: 1.95rem; }
+  
+  .avatar-wrapper { width: 215px; height: 215px; }
+  .btn { padding:1rem 2.1rem; font-size:1.14rem; }
 }
 </style>
 </head>
@@ -157,7 +174,7 @@ footer{
 </div>
 
 <div class="top-tagline">
-  SunDarknessShine は、タトゥー、アートメイク（PMU）、カスタムテキスタイルアートを一つの美的感覚で表現するアーティストです。
+  SunDarknessShine は、タトゥー、永久メイク（PMU）、カスタムテキスタイルアートを一つの芸術的ビジョンで表現するアーティストです。
 </div>
 
 <div class="content">
@@ -176,7 +193,7 @@ footer{
 
   <div class="buttons">
     <a href="about_jp.html" class="btn secondary">アーティストについて</a>
-    <a href="contact_jp.html" class="btn secondary">コンタクト</a>
+    <a href="contact_jp.html" class="btn secondary">お問い合わせ</a>
   </div>
 </div>
 
