@@ -20,81 +20,82 @@ body {
   justify-content:flex-end;
   align-items:center;
   position:relative;
-  padding-bottom:10vh;
+  padding-bottom:12vh;
   overflow-x:hidden;
 }
 
 /* Верхнее описание */
 .top-tagline {
   position:absolute;
-  top:1.4rem;
+  top:1.6rem;
   left:50%;
   transform:translateX(-50%);
-  width:min(980px, calc(100% - 40px));
-  padding:0 1.2rem;
+  width:min(1200px, calc(100% - 60px));
+  padding:0 1.5rem;
   text-align:center;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size:1.35rem;           /* базовый размер для ПК */
-  line-height:1.5;
+  font-size:1.42rem;
+  line-height:1.55;
   color:#D8B4E8;
   text-shadow:
-    -1.5px -1.5px 0 #000,
-     1.5px -1.5px 0 #000,
-    -1.5px  1.5px 0 #000,
-     1.5px  1.5px 0 #000,
-     0 0 22px rgba(216, 180, 232, 0.75);
+    -1.6px -1.6px 0 #000,
+     1.6px -1.6px 0 #000,
+    -1.6px  1.6px 0 #000,
+     1.6px  1.6px 0 #000,
+     0 0 24px rgba(216, 180, 232, 0.78);
   z-index:2;
 }
 
 /* Главный заголовок */
 h1 {
   font-family: 'Cinzel', serif;
-  font-size: 3.4rem;
+  font-size: 3.6rem;
   color: #E2C275;
   text-shadow:
-    -1.6px -1.6px 0 #000,
-     1.6px -1.6px 0 #000,
-    -1.6px  1.6px 0 #000,
-     1.6px  1.6px 0 #000,
-     0 0 28px rgba(226, 194, 117, 0.85);
-  margin: 0.5rem 0 0.3rem;
-  letter-spacing: 2px;
-  max-width: 92%;
+    -1.8px -1.8px 0 #000,
+     1.8px -1.8px 0 #000,
+    -1.8px  1.8px 0 #000,
+     1.8px  1.8px 0 #000,
+     0 0 32px rgba(226, 194, 117, 0.9);
+  margin: 0.7rem 0 0.5rem;
+  letter-spacing: 3px;
+  max-width: 100%;
+  text-align: center;
 }
 
 /* Подзаголовок */
 .subtitle {
-  font-size: 1.65rem;
+  font-size: 1.75rem;
   color: #D8B4E8;
   text-shadow:
     -1.5px -1.5px 0 #000,
      1.5px -1.5px 0 #000,
     -1.5px  1.5px 0 #000,
      1.5px  1.5px 0 #000,
-     0 0 22px rgba(216, 180, 232, 0.7);
-  margin-bottom: 2.2rem;
+     0 0 24px rgba(216, 180, 232, 0.75);
+  margin-bottom: 2.4rem;
 }
 
 /* ==================== МОБИЛЬНАЯ ВЕРСИЯ ==================== */
 @media (max-width: 768px) {
   .top-tagline {
     top: 1.05rem;
-    width: 92%;
-    font-size: 1.05rem;          /* значительно меньше на телефоне */
-    line-height: 1.42;
-    padding: 0 1rem;
+    width: 94%;
+    font-size: 1.05rem;
+    line-height: 1.45;
   }
 
   h1 {
-    font-size: 2.35rem;
+    font-size: 2.35rem;           /* уменьшено, чтобы точно влазило */
     letter-spacing: 1.8px;
-    max-width: 95%;
-    margin-top: 0.4rem;
+    max-width: 100%;              /* на весь экран */
+    white-space: normal;          /* разрешаем перенос, если очень длинно */
+    padding: 0 10px;
   }
 
   .subtitle {
-    font-size: 1.12rem;          /* меньше на мобильных */
+    font-size: 1.12rem;
     margin-bottom: 1.8rem;
   }
 
@@ -102,26 +103,43 @@ h1 {
     width: 152px;
     height: 152px;
   }
+
+  /* Кнопки на мобильных — чуть меньше */
+  .btn {
+    padding: .75rem 1.4rem;
+    font-size: 1rem;
+  }
 }
 
 /* ==================== БОЛЬШИЕ ЭКРАНЫ (ПК) ==================== */
 @media (min-width: 1200px) {
   .top-tagline {
-    font-size: 1.55rem;          /* ещё крупнее на больших экранах */
+    font-size: 2.35rem;           /* сильно увеличено */
+    line-height: 1.58;
   }
   h1 {
-    font-size: 3.85rem;
+    font-size: 5.1rem;            /* сильно увеличено */
+    letter-spacing: 4px;
   }
   .subtitle {
-    font-size: 1.78rem;
+    font-size: 2.35rem;           /* сильно увеличено */
+  }
+
+  /* Кнопки крупнее на ПК */
+  .btn {
+    padding: 1.05rem 2.1rem;
+    font-size: 1.15rem;
+  }
+  .btn.secondary {
+    padding: .85rem 1.6rem;
   }
 }
 
-/* Остальные стили */
+/* Общие стили кнопок */
 .lang-switch {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1.6rem;
+  right: 1.6rem;
   display: flex;
   gap: .5rem;
   z-index: 3;
@@ -131,53 +149,54 @@ h1 {
   border: 1px solid #ccc;
   color: #fff;
   border-radius: 5px;
-  padding: .35rem .7rem;
+  padding: .38rem .8rem;
   cursor: pointer;
-  font-size: .9rem;
+  font-size: .93rem;
 }
-.lang-switch button:hover { background: rgba(255,255,255,.3); }
+.lang-switch button:hover { background: rgba(255,255,255,.32); }
 
 .content { text-align: center; z-index: 1; padding: 1rem; }
 
 .avatar-wrapper {
-  width: 190px;
-  height: 190px;
-  margin: 0 auto 1.2rem;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.4rem;
 }
 .avatar-wrapper img {
   width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
   border: 4px solid #7A2E8E;
-  box-shadow: 0 0 25px rgba(0,0,0,.9), 0 0 30px rgba(122,46,142,.7);
+  box-shadow: 0 0 28px rgba(0,0,0,.9), 0 0 38px rgba(122,46,142,.78);
   cursor: pointer;
   transition: opacity .4s ease, transform .4s ease;
 }
 
 .buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 .btn {
-  padding: .82rem 1.65rem;
+  padding: .9rem 1.85rem;
   border-radius: 30px;
   border: 1px solid #000;
   background: rgba(0,0,0,.45);
   color: #D6A8F1;
   text-decoration: none;
   transition: .3s;
+  font-size: 1.05rem;
 }
 .btn:hover {
   background: #7A2E8E;
   color: #fff;
   border-color: #7A2E8E;
 }
-.btn.secondary { padding: .68rem 1.25rem; }
+.btn.secondary { padding: .72rem 1.4rem; }
 
 footer {
   position: absolute;
-  bottom: 1rem;
-  font-size: .85rem;
+  bottom: 1.3rem;
+  font-size: .87rem;
   color: #aaa;
 }
 </style>
