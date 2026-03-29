@@ -42,38 +42,24 @@ body {
   font-size:.9rem;
 }
 
-/* Заголовок */
+/* Заголовок "Gallery" — светло-сиреневый жирный курсив */
 h1 {
-  margin:2.8rem 0 0.6rem;
-  font-family:'Cinzel', serif;
-  font-size:3.2rem;
-  color:#E2C275;
-  text-shadow:
-    -2px -2px 0 #000,
-     2px -2px 0 #000,
-    -2px  2px 0 #000,
-     2px  2px 0 #000,
-     0 0 30px rgba(226,194,117,.85);
-  letter-spacing:3px;
-}
-
-/* Подзаголовок */
-.subtitle {
+  margin:2.8rem 0 2.2rem;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-weight: 600;
-  font-size: 2.1rem;
+  font-size: 2.65rem;
   color:#D8B4E8;
-  margin-bottom:2.2rem;
   text-shadow:
-    -1.5px -1.5px 0 #000,
-     1.5px -1.5px 0 #000,
-    -1.5px  1.5px 0 #000,
-     1.5px  1.5px 0 #000,
-     0 0 25px rgba(216,180,232,.75);
+    -1.8px -1.8px 0 #000,
+     1.8px -1.8px 0 #000,
+    -1.8px  1.8px 0 #000,
+     1.8px  1.8px 0 #000,
+     0 0 28px rgba(216,180,232,.8);
+  letter-spacing:2px;
 }
 
-/* Сетка */
+/* Сетка галереи */
 .grid {
   display:grid;
   grid-template-columns:repeat(3, 1fr);
@@ -106,7 +92,7 @@ h1 {
   transform:scale(1.06);
 }
 
-/* Навигация */
+/* Навигационные кнопки — тёмные полупрозрачные */
 .nav-links {
   margin:1rem 0 3rem;
   display:flex;
@@ -120,12 +106,14 @@ h1 {
   border:1px solid rgba(216,180,232,.6);
   padding:.7rem 1.8rem;
   border-radius:30px;
+  background:rgba(0,0,0,.45);
   transition:.3s;
   font-size:1.05rem;
 }
 .nav-links a:hover {
-  background:rgba(216,180,232,.25);
+  background:#7A2E8E;
   color:#fff;
+  border-color:#7A2E8E;
 }
 
 /* Lightbox */
@@ -154,7 +142,7 @@ h1 {
   box-shadow:0 0 40px rgba(0,0,0,.9);
 }
 
-/* Стрелки в lightbox */
+/* Стрелки */
 .close-btn, .prev-btn, .next-btn {
   position:absolute;
   font-size:2.8rem;
@@ -188,7 +176,6 @@ h1 {
 </div>
 
 <h1>Gallery</h1>
-<div class="subtitle">Custom</div>
 
 <div class="grid" id="galleryGrid"></div>
 
