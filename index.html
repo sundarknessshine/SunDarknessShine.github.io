@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SunDarknessShine</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
 <style>
@@ -22,22 +21,23 @@ body {
   align-items:center;
   position:relative;
   padding-bottom:10vh;
-  overflow-x:hidden;
+  overflow-x:hidden; /* Предотвращает горизонтальную прокрутку */
 }
 
+/* Верхний слоган */
 .top-tagline {
   position:absolute;
   top:1.4rem;
   left:50%;
   transform:translateX(-50%);
-  width:min(980px, calc(100% - 180px));
+  width:min(980px, calc(100% - 40px)); /* Увеличили ширину на малых экранах */
   padding:0 1rem;
   text-align:center;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size:1.25rem;
+  font-size: clamp(0.9rem, 4vw, 1.25rem); /* Адаптивный размер */
   line-height:1.45;
-  color:#D8B4E8;                    /* нежно-сиреневый */
+  color:#D8B4E8;
   text-shadow:
     -1.5px -1.5px 0 #000,
      1.5px -1.5px 0 #000,
@@ -47,10 +47,11 @@ body {
   z-index:2;
 }
 
+/* Переключатель языков */
 .lang-switch {
   position:absolute;
   top:1.5rem;
-  right:1.5rem;
+  right:1rem;
   display:flex;
   gap:.5rem;
   z-index:3;
@@ -63,16 +64,23 @@ body {
   border-radius:5px;
   padding:.3rem .6rem;
   cursor:pointer;
-  font-size:.9rem;
+  font-size:.8rem;
   transition:.25s;
 }
 .lang-switch button:hover { background:rgba(255,255,255,.3); }
 
-.content { text-align:center; z-index:1; padding:1rem; }
+.content { 
+  text-align:center; 
+  z-index:1; 
+  padding:1rem; 
+  width: 100%; 
+  max-width: 600px;
+}
 
+/* Аватар */
 .avatar-wrapper {
-  width:190px;
-  height:190px;
+  width:clamp(140px, 25vw, 190px); /* Адаптивный размер круга */
+  height:clamp(140px, 25vw, 190px);
   margin:0 auto 1.2rem;
 }
 .avatar-wrapper img {
@@ -86,10 +94,12 @@ body {
   transition:opacity .4s ease, transform .4s ease;
 }
 
+/* Главный заголовок (Проблемная зона) */
 h1 {
   font-family: 'Cinzel', serif;
-  font-size:3.2rem;
-  color:#E2C275;                    /* золотистый */
+  /* Шрифт плавно уменьшается от 3.2rem до 1.7rem в зависимости от ширины экрана */
+  font-size: clamp(1.7rem, 8vw, 3.2rem); 
+  color:#E2C275;
   text-shadow:
     -1.6px -1.6px 0 #000,
      1.6px -1.6px 0 #000,
@@ -98,14 +108,16 @@ h1 {
      0 0 28px rgba(226, 194, 117, 0.9);
   margin-bottom:.35rem;
   letter-spacing: 2px;
+  word-wrap: break-word; /* Страховка от вылезания текста */
 }
 
+/* Подзаголовок */
 .subtitle {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size:1.55rem;
+  font-size: clamp(1.1rem, 5vw, 1.55rem);
   letter-spacing:1px;
-  color:#D8B4E8;                    /* нежно-сиреневый */
+  color:#D8B4E8;
   text-shadow:
     -1.5px -1.5px 0 #000,
      1.5px -1.5px 0 #000,
@@ -117,7 +129,7 @@ h1 {
 
 .buttons {
   display:flex;
-  gap:1rem;
+  gap:0.8rem;
   flex-wrap:wrap;
   justify-content:center;
 }
@@ -130,6 +142,7 @@ h1 {
   color:#D6A8F1;
   text-decoration:none;
   transition:.3s;
+  font-size: 0.95rem;
 }
 .btn:hover {
   background:#7A2E8E;
@@ -138,6 +151,7 @@ h1 {
 }
 .btn.secondary {
   padding:.65rem 1.2rem;
+  font-size: 0.85rem;
 }
 
 footer {
@@ -147,7 +161,7 @@ footer {
   color:#aaa;
 }
 
-/* ==================== МОБИЛЬНАЯ ВЕРСИЯ ==================== */
+/* Настройки для мобильных устройств */
 @media(max-width:768px) {
   body {
     background-attachment:scroll;
@@ -157,29 +171,15 @@ footer {
     background-color:#000;
     padding-bottom:8vh;
   }
-  .top-tagline {
-    top:1.1rem;
-    width:calc(100% - 120px);
-    font-size:0.98rem;
-    line-height:1.42;
-    padding:0 .8rem;
-  }
+  
   h1 { 
-    font-size:2.15rem;
-    letter-spacing: 1.6px;
+    letter-spacing: 0.5px; /* Уменьшаем интервал, чтобы слово влезло */
   }
-  .subtitle { 
-    font-size:1.12rem;
-    margin-bottom:1.65rem; 
-  }
-  .avatar-wrapper { width:150px; height:150px; }
-}
 
-/* ==================== БОЛЬШИЕ ЭКРАНЫ ==================== */
-@media(min-width:1200px) {
-  h1 { font-size:3.8rem; }
-  .subtitle { font-size:1.75rem; }
-  .top-tagline { font-size:1.38rem; }
+  .lang-switch {
+    top: 0.8rem;
+    right: 0.8rem;
+  }
 }
 
 </style>
@@ -223,10 +223,23 @@ footer {
   const photos = ["artist_photo.jpg", "artist_avatar.jpg"];
   let i = 0;
 
+  // Исправленный и завершенный скрипт анимации
   setInterval(() => {
     i = (i + 1) % photos.length;
     avatar.style.opacity = 0;
     avatar.style.transform = "scale(0.97)";
     setTimeout(() => {
       avatar.src = photos[i];
-     
+      avatar.style.opacity = 1;
+      avatar.style.transform = "scale(1)";
+    }, 200);
+  }, 2000);
+
+  avatar.addEventListener("click", () => {
+    i = (i + 1) % photos.length;
+    avatar.src = photos[i];
+  });
+</script>
+
+</body>
+</html>
