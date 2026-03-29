@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ギャラリー – タトゥー | SunDarknessShine</title>
+<title>ギャラリー – PMU | SunDarknessShine</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
@@ -171,8 +171,8 @@ h1 {
 <body>
 
 <div class="lang-switch">
-  <button onclick="location.href='gallery2.html'">EN</button>
-  <button onclick="location.href='gallery2_ru.html'">RU</button>
+  <button onclick="location.href='gallery3.html'">EN</button>
+  <button onclick="location.href='gallery3_ru.html'">RU</button>
 </div>
 
 <h1>ギャラリー</h1>
@@ -180,9 +180,9 @@ h1 {
 <div class="grid" id="galleryGrid"></div>
 
 <div class="nav-links">
-  <a href="about2_jp.html">詳細情報</a>
+  <a href="about3_jp.html">詳細情報</a>
   <a href="contact_jp.html">お問い合わせ</a>
-  <a href="index2_jp.html">戻る</a>
+  <a href="index3_jp.html">戻る</a>
 </div>
 
 <div class="lightbox" id="lightbox">
@@ -203,7 +203,8 @@ const nextBtn = document.getElementById("nextBtn");
 const items = [];
 let current = 0;
 
-function num(i){ return "0" + String(i); }
+/* ДВА ведущих нуля для PMU */
+function num(i){ return "00" + String(i); }
 
 function addMedia(type, src) {
   const index = items.length;
@@ -277,7 +278,7 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") nav(-1);
 });
 
-/* Загрузка файлов для Tattoo (с ведущим нулём) */
+/* Загрузка файлов с двумя нулями */
 for (let i = 1; i <= 999; i++) {
   const n = num(i);
 
