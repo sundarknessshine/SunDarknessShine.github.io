@@ -137,16 +137,8 @@ footer {
   color:#aaa;
 }
 
-/* ==================== МОБИЛЬНАЯ ВЕРСИЯ ==================== */
+/* ==================== МОБИЛЬНАЯ ==================== */
 @media(max-width:768px) {
-  body {
-    background-attachment:scroll;
-    background-size:contain;
-    background-position:center 20%;
-    background-repeat:no-repeat;
-    background-color:#000;
-    padding-bottom:8vh;
-  }
   .top-tagline {
     top:1.05rem;
     width:calc(100% - 100px);
@@ -159,14 +151,17 @@ footer {
   .lang-switch { top:0.9rem; right:0.9rem; }
 }
 
-/* ==================== КОМПЬЮТЕР — увеличиваем шрифты ==================== */
+/* ==================== КОМПЬЮТЕР ==================== */
 @media(min-width:1200px) {
-  .top-tagline { font-size: 2.15rem; }
-  h1 { font-size: 4.2rem; letter-spacing: 3.5px; }
+  .top-tagline { 
+    font-size: 2.25rem; 
+    top: 1.85rem;        /* ← сдвинули вниз, чтобы не перекрывало кнопки */
+  }
+  h1 { font-size: 4.1rem; letter-spacing: 3.5px; }
   .subtitle { font-size: 1.95rem; }
   
   .avatar-wrapper { width: 215px; height: 215px; }
-  .btn { padding:1rem 2rem; font-size:1.15rem; }
+  .btn { padding:1rem 2.1rem; font-size:1.14rem; }
 }
 </style>
 </head>
