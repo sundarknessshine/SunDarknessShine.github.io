@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SunDarknessShine</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
 <style>
@@ -20,187 +19,162 @@ body {
   justify-content:flex-end;
   align-items:center;
   position:relative;
-  padding-bottom:11vh;
+  padding-bottom:10vh;
   overflow-x:hidden;
 }
 
-/* Верхняя надпись — теперь золотистая */
+/* Верхняя надпись — нежно-сиреневая */
 .top-tagline {
   position:absolute;
-  top:1.4rem;
-  left:50%;
-  transform:translateX(-50%);
-  width: min(1100px, 92%);           /* резиново */
-  max-width: 92%;
-  padding: 0 1.2rem;
-  text-align:center;
+  top:1.35rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;                    /* просто и надёжно */
+  max-width: 920px;
+  text-align: center;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.32rem;
-  line-height: 1.5;
-  color: #E2C275;                     /* золотистый, как заголовок */
+  font-size: 1.25rem;
+  line-height: 1.48;
+  color: #D8B4E8;
   text-shadow:
-    -1.5px -1.5px 0 #000,
-     1.5px -1.5px 0 #000,
-    -1.5px  1.5px 0 #000,
-     1.5px  1.5px 0 #000,
-     0 0 24px rgba(226, 194, 117, 0.85);
-  z-index:2;
+    -1.4px -1.4px 0 #000,
+     1.4px -1.4px 0 #000,
+    -1.4px  1.4px 0 #000,
+     1.4px  1.4px 0 #000,
+     0 0 20px rgba(216, 180, 232, 0.8);
+  z-index: 2;
 }
 
 /* Главный заголовок */
 h1 {
   font-family: 'Cinzel', serif;
-  font-size: 3.4rem;
+  font-size: 3.25rem;
   color: #E2C275;
   text-shadow:
-    -1.8px -1.8px 0 #000,
-     1.8px -1.8px 0 #000,
-    -1.8px  1.8px 0 #000,
-     1.8px  1.8px 0 #000,
-     0 0 32px rgba(226, 194, 117, 0.9);
-  margin: 0.6rem 0 0.4rem;
-  letter-spacing: 2.5px;
-  max-width: 100%;
-  padding: 0 15px;                    /* защита от вылезания */
+    -1.7px -1.7px 0 #000,
+     1.7px -1.7px 0 #000,
+    -1.7px  1.7px 0 #000,
+     1.7px  1.7px 0 #000,
+     0 0 30px rgba(226, 194, 117, 0.9);
+  margin: 0.55rem 0 0.35rem;
+  letter-spacing: 2px;
   text-align: center;
+  padding: 0 20px;               /* защита от вылезания на узких экранах */
+  max-width: 100%;
 }
 
 /* Подзаголовок */
 .subtitle {
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   color: #D8B4E8;
   text-shadow:
     -1.5px -1.5px 0 #000,
      1.5px -1.5px 0 #000,
     -1.5px  1.5px 0 #000,
      1.5px  1.5px 0 #000,
-     0 0 22px rgba(216, 180, 232, 0.78);
-  margin-bottom: 2.2rem;
+     0 0 20px rgba(216, 180, 232, 0.75);
+  margin-bottom: 2.1rem;
 }
 
-/* Кнопки языка — меньше и дальше в угол */
+/* Кнопки языка — меньше и в угол */
 .lang-switch {
   position:absolute;
-  top:1.2rem;
-  right:1.2rem;
+  top:1.1rem;
+  right:1.1rem;
   display:flex;
-  gap:.4rem;
+  gap:0.4rem;
   z-index:10;
 }
 .lang-switch button {
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.4);
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.35);
   color:#fff;
-  border-radius:6px;
-  padding:.28rem .65rem;
+  border-radius:5px;
+  padding:0.25rem 0.6rem;
+  font-size:0.84rem;
   cursor:pointer;
-  font-size:0.86rem;
-  transition:.25s;
 }
-.lang-switch button:hover {
-  background:rgba(255,255,255,.28);
-}
+.lang-switch button:hover { background:rgba(255,255,255,.3); }
 
-/* Кнопки меню */
-.buttons {
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-  justify-content:center;
+/* Остальные кнопки */
+.buttons { 
+  display:flex; 
+  gap:1rem; 
+  flex-wrap:wrap; 
+  justify-content:center; 
 }
 .btn {
-  padding:.85rem 1.75rem;
+  padding:.8rem 1.6rem;
   border-radius:30px;
   border:1px solid #000;
   background:rgba(0,0,0,.45);
   color:#D6A8F1;
   text-decoration:none;
   transition:.3s;
-  font-size:1.05rem;
 }
 .btn:hover {
   background:#7A2E8E;
   color:#fff;
   border-color:#7A2E8E;
 }
-.btn.secondary {
-  padding:.7rem 1.35rem;
-}
-
-/* ==================== МОБИЛЬНАЯ ВЕРСИЯ ==================== */
-@media (max-width: 768px) {
-  .top-tagline {
-    top: 1.05rem;
-    font-size: 1.05rem;
-    width: 90%;
-    padding: 0 1rem;
-  }
-
-  h1 {
-    font-size: 2.28rem;
-    letter-spacing: 1.6px;
-    padding: 0 12px;
-  }
-
-  .subtitle {
-    font-size: 1.14rem;
-    margin-bottom: 1.8rem;
-  }
-
-  .avatar-wrapper {
-    width: 148px;
-    height: 148px;
-  }
-
-  .btn {
-    padding: .72rem 1.4rem;
-    font-size: 0.97rem;
-  }
-}
-
-/* ==================== БОЛЬШИЕ ЭКРАНЫ ==================== */
-@media (min-width: 1200px) {
-  .top-tagline {
-    font-size: 2.35rem;
-  }
-  h1 {
-    font-size: 5.0rem;
-    letter-spacing: 4px;
-  }
-  .subtitle {
-    font-size: 2.25rem;
-  }
-
-  .btn {
-    padding: 1.1rem 2.3rem;
-    font-size: 1.2rem;
-  }
-  .btn.secondary {
-    padding: .9rem 1.7rem;
-  }
-}
+.btn.secondary { padding:.65rem 1.25rem; }
 
 .content { text-align:center; z-index:1; padding:1rem; }
 
 .avatar-wrapper {
-  width:195px;
-  height:195px;
-  margin:0 auto 1.3rem;
+  width:190px;
+  height:190px;
+  margin:0 auto 1.2rem;
 }
 .avatar-wrapper img {
   width:100%; height:100%; object-fit:cover; border-radius:50%;
   border:4px solid #7A2E8E;
-  box-shadow:0 0 28px rgba(0,0,0,.9), 0 0 35px rgba(122,46,142,.75);
+  box-shadow:0 0 25px rgba(0,0,0,.9), 0 0 30px rgba(122,46,142,.7);
   cursor:pointer;
   transition:opacity .4s ease, transform .4s ease;
 }
 
 footer {
   position:absolute;
-  bottom:1.2rem;
-  font-size:.86rem;
+  bottom:1rem;
+  font-size:.85rem;
   color:#aaa;
+}
+
+/* ==================== МОБИЛЬНАЯ ВЕРСИЯ ==================== */
+@media(max-width:768px) {
+  .top-tagline {
+    top:1.05rem;
+    font-size:1.02rem;
+    width: 88%;
+    padding: 0 12px;
+  }
+  h1 {
+    font-size: 2.22rem;
+    letter-spacing: 1.4px;
+    padding: 0 15px;
+  }
+  .subtitle {
+    font-size: 1.12rem;
+    margin-bottom:1.7rem;
+  }
+  .avatar-wrapper { width:150px; height:150px; }
+}
+
+/* ==================== БОЛЬШИЕ ЭКРАНЫ ==================== */
+@media(min-width:1200px) {
+  .top-tagline { font-size: 2.15rem; }
+  h1 { 
+    font-size: 4.75rem; 
+    letter-spacing: 3.5px;
+  }
+  .subtitle { font-size: 2.15rem; }
+  
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 1.15rem;
+  }
 }
 </style>
 </head>
