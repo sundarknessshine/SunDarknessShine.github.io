@@ -5,14 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SunDarknessShine</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:"Segoe UI", sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   background:#000 url("background.jpg") no-repeat center center fixed;
   background-size:cover;
   min-height:100vh;
-  color:#fff;
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
@@ -22,162 +24,161 @@ body {
   overflow-x:hidden;
 }
 
+/* Верхнее описание */
 .top-tagline {
   position:absolute;
   top:1.4rem;
   left:50%;
   transform:translateX(-50%);
-  width:min(980px, calc(100% - 180px));
-  padding:0 1rem;
+  width:min(980px, calc(100% - 40px));
+  padding:0 1.2rem;
   text-align:center;
-  font-size:1.25rem;
-  line-height:1.45;
-  color:#C8A2E8;                    /* светло-фиолетовый */
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size:1.35rem;           /* базовый размер для ПК */
+  line-height:1.5;
+  color:#D8B4E8;
   text-shadow:
     -1.5px -1.5px 0 #000,
      1.5px -1.5px 0 #000,
     -1.5px  1.5px 0 #000,
      1.5px  1.5px 0 #000,
-     0 0 22px rgba(200, 162, 232, 0.85);
+     0 0 22px rgba(216, 180, 232, 0.75);
   z-index:2;
 }
 
-.lang-switch {
-  position:absolute;
-  top:1.5rem;
-  right:1.5rem;
-  display:flex;
-  gap:.5rem;
-  z-index:3;
-}
-
-.lang-switch button {
-  background:rgba(255,255,255,.15);
-  border:1px solid #ccc;
-  color:#fff;
-  border-radius:5px;
-  padding:.3rem .6rem;
-  cursor:pointer;
-  font-size:.9rem;
-  transition:.25s;
-}
-.lang-switch button:hover { background:rgba(255,255,255,.3); }
-
-.content { text-align:center; z-index:1; padding:1rem; }
-
-.avatar-wrapper {
-  width:190px;
-  height:190px;
-  margin:0 auto 1.2rem;
-}
-.avatar-wrapper img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:50%;
-  border:4px solid #7A2E8E;
-  box-shadow:0 0 25px rgba(0,0,0,.9), 0 0 30px rgba(122,46,142,.7);
-  cursor:pointer;
-  transition:opacity .4s ease, transform .4s ease;
-}
-
+/* Главный заголовок */
 h1 {
-  font-size:3.2rem;
-  color:#C8A2E8;                    /* светло-фиолетовый */
+  font-family: 'Cinzel', serif;
+  font-size: 3.4rem;
+  color: #E2C275;
   text-shadow:
     -1.6px -1.6px 0 #000,
      1.6px -1.6px 0 #000,
     -1.6px  1.6px 0 #000,
      1.6px  1.6px 0 #000,
-     0 0 28px rgba(200, 162, 232, 0.9);
-  margin-bottom:.35rem;
+     0 0 28px rgba(226, 194, 117, 0.85);
+  margin: 0.5rem 0 0.3rem;
+  letter-spacing: 2px;
+  max-width: 92%;
 }
 
+/* Подзаголовок */
 .subtitle {
-  font-size:1.55rem;
-  letter-spacing:1px;
-  color:#C8A2E8;                    /* светло-фиолетовый */
+  font-size: 1.65rem;
+  color: #D8B4E8;
   text-shadow:
     -1.5px -1.5px 0 #000,
      1.5px -1.5px 0 #000,
     -1.5px  1.5px 0 #000,
      1.5px  1.5px 0 #000,
-     0 0 22px rgba(200, 162, 232, 0.8);
-  margin-bottom:2.1rem;
-}
-
-.buttons {
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.btn {
-  padding:.8rem 1.6rem;
-  border-radius:30px;
-  border:1px solid #000;
-  background:rgba(0,0,0,.45);
-  color:#D6A8F1;
-  text-decoration:none;
-  transition:.3s;
-}
-.btn:hover {
-  background:#7A2E8E;
-  color:#fff;
-  border-color:#7A2E8E;
-}
-.btn.secondary {
-  padding:.65rem 1.2rem;
-}
-
-footer {
-  position:absolute;
-  bottom:1rem;
-  font-size:.85rem;
-  color:#aaa;
+     0 0 22px rgba(216, 180, 232, 0.7);
+  margin-bottom: 2.2rem;
 }
 
 /* ==================== МОБИЛЬНАЯ ВЕРСИЯ ==================== */
-@media(max-width:768px) {
-  body {
-    background-attachment:scroll;
-    background-size:contain;
-    background-position:center 20%;
-    background-repeat:no-repeat;
-    background-color:#000;
-    padding-bottom:8vh;
-  }
+@media (max-width: 768px) {
   .top-tagline {
-    top:1.1rem;
-    width:calc(100% - 120px);
-    font-size:0.95rem;           /* ещё меньше */
-    line-height:1.4;
-    padding:0 .8rem;
+    top: 1.05rem;
+    width: 92%;
+    font-size: 1.05rem;          /* значительно меньше на телефоне */
+    line-height: 1.42;
+    padding: 0 1rem;
   }
-  h1 { font-size:2.1rem; }
-  .subtitle { 
-    font-size:1.05rem;           /* уменьшил */
-    margin-bottom:1.6rem; 
-  }
-  .avatar-wrapper { width:150px; height:150px; }
 
-  /* тоньше обводка на телефоне */
-  .top-tagline, h1, .subtitle {
-    text-shadow:
-      -1.2px -1.2px 0 #000,
-       1.2px -1.2px 0 #000,
-      -1.2px  1.2px 0 #000,
-       1.2px  1.2px 0 #000,
-       0 0 18px rgba(200, 162, 232, 0.8);
+  h1 {
+    font-size: 2.35rem;
+    letter-spacing: 1.8px;
+    max-width: 95%;
+    margin-top: 0.4rem;
+  }
+
+  .subtitle {
+    font-size: 1.12rem;          /* меньше на мобильных */
+    margin-bottom: 1.8rem;
+  }
+
+  .avatar-wrapper {
+    width: 152px;
+    height: 152px;
   }
 }
 
-/* Большие экраны (компьютер) — оставляем как есть */
-@media(min-width:1200px) {
-  h1 { font-size:3.5rem; }
-  .subtitle { font-size:1.68rem; }
-  .top-tagline { font-size:1.32rem; }
+/* ==================== БОЛЬШИЕ ЭКРАНЫ (ПК) ==================== */
+@media (min-width: 1200px) {
+  .top-tagline {
+    font-size: 1.55rem;          /* ещё крупнее на больших экранах */
+  }
+  h1 {
+    font-size: 3.85rem;
+  }
+  .subtitle {
+    font-size: 1.78rem;
+  }
+}
+
+/* Остальные стили */
+.lang-switch {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: .5rem;
+  z-index: 3;
+}
+.lang-switch button {
+  background: rgba(255,255,255,.15);
+  border: 1px solid #ccc;
+  color: #fff;
+  border-radius: 5px;
+  padding: .35rem .7rem;
+  cursor: pointer;
+  font-size: .9rem;
+}
+.lang-switch button:hover { background: rgba(255,255,255,.3); }
+
+.content { text-align: center; z-index: 1; padding: 1rem; }
+
+.avatar-wrapper {
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 1.2rem;
+}
+.avatar-wrapper img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+  border: 4px solid #7A2E8E;
+  box-shadow: 0 0 25px rgba(0,0,0,.9), 0 0 30px rgba(122,46,142,.7);
+  cursor: pointer;
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn {
+  padding: .82rem 1.65rem;
+  border-radius: 30px;
+  border: 1px solid #000;
+  background: rgba(0,0,0,.45);
+  color: #D6A8F1;
+  text-decoration: none;
+  transition: .3s;
+}
+.btn:hover {
+  background: #7A2E8E;
+  color: #fff;
+  border-color: #7A2E8E;
+}
+.btn.secondary { padding: .68rem 1.25rem; }
+
+footer {
+  position: absolute;
+  bottom: 1rem;
+  font-size: .85rem;
+  color: #aaa;
 }
 </style>
 </head>
