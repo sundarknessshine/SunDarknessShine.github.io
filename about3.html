@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Info – PMU | SunDarknessShine</title>
+
+  <style>
+    html, body { margin:0; padding:0; font-family:"Segoe UI", sans-serif; }
+
+    body{
+      background:#000 url("background2.jpg") no-repeat center center fixed;
+      background-size:cover;
+      color:#D6A8F1;
+      text-align:center;
+      padding:2rem 1rem 3rem;
+      min-height:100vh;
+    }
+
+    .lang-switch{
+      position:absolute;
+      top:1.5rem;
+      right:1.5rem;
+      display:flex;
+      gap:.5rem;
+      z-index:5;
+    }
+
+    .lang-switch button{
+      background:rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.7);
+      color:white;
+      border-radius:6px;
+      padding:.4rem .8rem;
+      cursor:pointer;
+      transition:background .25s;
+      font-size:.9rem;
+    }
+    .lang-switch button:hover{ background:rgba(255,255,255,0.25); }
+
+    .content{
+      max-width:1100px;
+      margin:5rem auto 0;
+      text-align:center;
+    }
+
+    h1{
+      font-size:2.4rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:1.1rem;
+      color:#7A2E8E;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 25px rgba(122,46,142,0.7);
+    }
+
+    .block{
+      margin:0 auto 1.6rem;
+      max-width:1000px;
+      text-align:left;
+    }
+
+    .block h2{
+      margin:1.0rem 0 .7rem;
+      font-size:1.5rem;
+      letter-spacing:1px;
+      color:#7A2E8E;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 20px rgba(122,46,142,0.55);
+      text-transform:uppercase;
+      text-align:center;
+    }
+
+    p{
+      font-size:1.45rem;
+      line-height:1.85;
+      margin:0 0 1.0rem;
+      color:#D6A8F1;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 18px rgba(0,0,0,0.9);
+    }
+
+    ul{
+      margin:.2rem 0 1.1rem 1.2rem;
+      padding:0;
+    }
+
+    li{
+      font-size:1.45rem;
+      line-height:1.75;
+      margin:.55rem 0;
+      color:#D6A8F1;
+      text-shadow:
+       -2px -2px 0 #000,
+        2px -2px 0 #000,
+       -2px  2px 0 #000,
+        2px  2px 0 #000,
+        0 0 18px rgba(0,0,0,0.9);
+    }
+
+    .price-list{
+      list-style:none;
+      margin:.4rem 0 1.2rem;
+      padding:0;
+    }
+    .price-list li{
+      margin:.6rem 0;
+      padding:.6rem .9rem;
+      border:1px solid rgba(255,62,255,.45);
+      border-radius:10px;
+      background:rgba(0,0,0,.25);
+    }
+
+    a{ color:#FF3EFF; text-decoration:none; }
+    a:hover{ color:#FF7CFF; text-decoration:underline; }
+
+    .back{
+      display:inline-block;
+      margin-top:1.2rem;
+      padding:10px 16px;
+      border-radius:8px;
+      border:1px solid rgba(255,62,255,0.7);
+      color:#FF3EFF;
+      text-decoration:none;
+      text-shadow:none;
+    }
+    .back:hover{
+      background:rgba(255,62,255,0.3);
+      border-color:#FF7CFF;
+      color:white;
+    }
+
+    @media(max-width:600px){
+      h1{ font-size:1.9rem; }
+      .block h2{ font-size:1.25rem; }
+      p, li{ font-size:1.15rem; line-height:1.65; }
+      .block{ text-align:left; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lang-switch">
+    <button onclick="location.href='about3_ru.html'">RU</button>
+    <button onclick="location.href='about3_jp.html'">JP</button>
+  </div>
+
+  <div class="content">
+    <h1>PMU</h1>
+
+    <div class="block">
+      <h2>Information</h2>
+
+      <p>
+        🪄 <strong>Permanent Makeup (PMU)</strong> is a cosmetic procedure where special pigments are implanted into
+        the upper layers of the skin (dermis) to imitate makeup or enhance facial features — brows, lips, eyes, etc.
+        It helps save time on daily makeup and solves aesthetic goals (brow shape, eyeliner line, lip contour, and more).
+      </p>
+
+      <p>💆‍♀️ <strong>How the procedure works:</strong></p>
+      <ul>
+        <li>Consultation and selection of shape/color;</li>
+        <li>Disinfection and anesthesia (if needed);</li>
+        <li>Pigment application using a specialized machine;</li>
+        <li>Healing period and follow-up corrections.</li>
+      </ul>
+
+      <p>📌 The full appointment usually takes <strong>1.5–3 hours</strong> and includes discussion of the desired result and aftercare.</p>
+      <p>📌 A touch-up is recommended after <strong>4–8 weeks</strong>.</p>
+
+      <p>📌 <strong>Aftercare notes:</strong></p>
+      <ul>
+        <li>Mild swelling and redness may occur during the first days.</li>
+        <li>Do not pick the scabs while healing.</li>
+        <li>Follow the aftercare guidance (protective cream, avoid water/sweat).</li>
+      </ul>
+
+      <p>💰 <strong>Pricing:</strong></p>
+      <ul class="price-list">
+        <p><strong>Brows (powder effect)</strong> — 35,000&nbsp;JPY</p>
+        <p><strong>Eyeliner / wings / lash line</strong> — 25,000&nbsp;JPY</p>
+        <p><strong>Lips (Lip blush)</strong> — 35,000&nbsp;JPY</p>
+      </ul>
+
+      <p>💡 <strong>Important 😉</strong></p>
+      <ul>
+        <li>Appointment only.</li>
+        <li>Contraindications and aftercare recommendations are discussed before the procedure.</li>
+      </ul>
+
+      <p>✍️ For consultation, please contact me via <a href="contact.html">contacts</a> 😉</p>
+
+      <a href="index3.html" class="back">← Back</a>
+    </div>
+  </div>
+</body>
+</html>

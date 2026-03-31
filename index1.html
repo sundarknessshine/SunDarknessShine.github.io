@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SunDarknessShine – Custom</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background:#000 url("background.jpg") no-repeat center center fixed;
+  background-size:cover;
+  min-height:100vh;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  position:relative;
+  padding-bottom:10vh;
+  overflow-x:hidden;
+}
+
+/* Верхний текст */
+.top-tagline {
+  position:absolute;
+  top:1.4rem;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(980px, calc(100% - 160px));
+  padding:0 1rem;
+  text-align:center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size:1.25rem;
+  line-height:1.45;
+  color:#D8B4E8;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 22px rgba(216, 180, 232, 0.85);
+  z-index:2;
+}
+
+/* Боковые стрелки */
+.side-nav {
+  position:fixed;
+  top:0;
+  height:100vh;
+  width:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:#D8B4E8;
+  font-size:2.8rem;
+  z-index:10;
+  transition:background .3s;
+}
+.side-nav.left { left:0; }
+.side-nav.right { right:0; }
+
+.side-nav:hover {
+  background:rgba(216, 180, 232, 0.12);
+}
+
+/* Переключатель языков */
+.lang-switch {
+  position:absolute;
+  top:1.2rem;
+  right:1.2rem;
+  display:flex;
+  gap:.5rem;
+  z-index:15;
+}
+
+.lang-switch button {
+  background:rgba(255,255,255,.15);
+  border:1px solid #ccc;
+  color:#fff;
+  border-radius:5px;
+  padding:.28rem .65rem;
+  cursor:pointer;
+  font-size:.85rem;
+}
+.lang-switch button:hover { background:rgba(255,255,255,.3); }
+
+.content { text-align:center; z-index:1; padding:1rem; }
+
+.avatar-wrapper {
+  width:190px;
+  height:190px;
+  margin:0 auto 1.2rem;
+}
+.avatar-wrapper img {
+  width:100%; height:100%; object-fit:cover; border-radius:50%;
+  border:4px solid #7A2E8E;
+  box-shadow:0 0 25px rgba(0,0,0,.9), 0 0 30px rgba(122,46,142,.7);
+  cursor:pointer;
+  transition:opacity .4s ease, transform .4s ease;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size:3.2rem;
+  color:#E2C275;
+  text-shadow:
+    -1.6px -1.6px 0 #000,
+     1.6px -1.6px 0 #000,
+    -1.6px  1.6px 0 #000,
+     1.6px  1.6px 0 #000,
+     0 0 28px rgba(226, 194, 117, 0.9);
+  margin-bottom:.4rem;
+  letter-spacing:2px;
+}
+
+.subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size:1.55rem;
+  color:#D8B4E8;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 22px rgba(216, 180, 232, 0.8);
+  margin-bottom:2.1rem;
+}
+
+.buttons {
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.btn {
+  padding:.8rem 1.6rem;
+  border-radius:30px;
+  border:1px solid #000;
+  background:rgba(0,0,0,.45);
+  color:#D6A8F1;
+  text-decoration:none;
+  transition:.3s;
+}
+.btn:hover { background:#7A2E8E; color:#fff; border-color:#7A2E8E; }
+.btn.secondary { padding:.65rem 1.2rem; }
+
+footer {
+  position:absolute;
+  bottom:1rem;
+  font-size:.85rem;
+  color:#aaa;
+}
+
+/* ==================== МОБИЛЬНАЯ ==================== */
+@media(max-width:768px) {
+  .top-tagline {
+    top: 2.4rem;
+    width:calc(100% - 100px);
+    font-size:1.0rem;
+    padding:0 12px;
+  }
+  h1 { font-size:2.1rem; letter-spacing:1.4px; }
+  .subtitle { font-size:1.12rem; margin-bottom:1.6rem; }
+  .avatar-wrapper { width:150px; height:150px; }
+  .side-nav { width:34px; font-size:2.4rem; }
+  .lang-switch { top:0.9rem; right:0.9rem; }
+}
+
+/* ==================== КОМПЬЮТЕР ==================== */
+@media(min-width:1200px) {
+  .top-tagline { 
+    font-size: 2.25rem; 
+    top: 1.7rem;
+  }
+  h1 { font-size: 4.1rem; letter-spacing: 3.5px; }
+  .subtitle { font-size: 1.95rem; }
+  
+  .avatar-wrapper { width: 215px; height: 215px; }
+  .btn { padding:1rem 2.1rem; font-size:1.14rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="lang-switch">
+  <button onclick="location.href='index1_ru.html'">RU</button>
+  <button onclick="location.href='index1_jp.html'">JP</button>
+</div>
+
+<div class="top-tagline">
+  <strong>Custom textile art</strong> — bringing artistic ideas onto fabric. 
+  Turning everyday pieces into exclusive wearable designs with a personalized approach for each order.
+</div>
+
+<!-- Боковые стрелки -->
+<a class="side-nav left" href="index3.html" aria-label="Go to PMU">‹</a>
+<a class="side-nav right" href="index2.html" aria-label="Go to Tattoo">›</a>
+
+<div class="content">
+  <div class="avatar-wrapper">
+    <img id="avatar" src="artist_photo.jpg" alt="Artist portrait">
+  </div>
+
+  <h1>SunDarknessShine</h1>
+  <div class="subtitle">Custom Collection</div>
+
+  <div class="buttons" style="margin-bottom:1rem;">
+    <a href="gallery1.html" class="btn">Gallery</a>
+    <a href="about1.html" class="btn">Information</a>
+    <a href="index.html" class="btn">Back </a>
+  </div>
+</div>
+
+<footer>© 2025 SunDarknessShine</footer>
+
+<script>
+  const avatar = document.getElementById("avatar");
+  const photos = ["artist_photo.jpg", "artist_avatar.jpg"];
+  let i = 0;
+
+  setInterval(() => {
+    i = (i + 1) % photos.length;
+    avatar.style.opacity = 0;
+    avatar.style.transform = "scale(0.97)";
+    setTimeout(() => {
+      avatar.src = photos[i];
+      avatar.style.opacity = 1;
+      avatar.style.transform = "scale(1)";
+    }, 200);
+  }, 2000);
+
+  avatar.addEventListener("click", () => {
+    i = (i + 1) % photos.length;
+    avatar.src = photos[i];
+  });
+</script>
+
+</body>
+</html>

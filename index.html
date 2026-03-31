@@ -168,9 +168,58 @@ footer {
 
 <body>
 
+<div class="lang-switch">
+  <button onclick="location.href='index_ru.html'">RU</button>
+  <button onclick="location.href='index_jp.html'">JP</button>
+</div>
 
-  <h1>Здесь ничего нет</h1>
- 
+<div class="top-tagline">
+  SunDarknessShine is an artist working across tattoo, permanent makeup (PMU), and custom textile art, united by a single visual language and artistic vision.
+</div>
+
+<div class="content">
+  <div class="avatar-wrapper">
+    <img id="avatar" src="artist_photo.jpg" alt="Artist portrait">
+  </div>
+
+  <h1>SunDarknessShine</h1>
+  <div class="subtitle">The official website of the artist</div>
+
+  <div class="buttons" style="margin-bottom:1rem;">
+    <a href="index1.html" class="btn">Custom</a>
+    <a href="index2.html" class="btn">Tattoo</a>
+    <a href="index3.html" class="btn">PMU</a>
+  </div>
+
+  <div class="buttons">
+    <a href="about.html" class="btn secondary">About the Artist</a>
+    <a href="contact.html" class="btn secondary">Contacts</a>
+  </div>
+</div>
+
+<footer>© 2025 SunDarknessShine</footer>
+
+<script>
+  const avatar = document.getElementById("avatar");
+  const photos = ["artist_photo.jpg", "artist_avatar.jpg"];
+  let i = 0;
+
+  setInterval(() => {
+    i = (i + 1) % photos.length;
+    avatar.style.opacity = 0;
+    avatar.style.transform = "scale(0.97)";
+    setTimeout(() => {
+      avatar.src = photos[i];
+      avatar.style.opacity = 1;
+      avatar.style.transform = "scale(1)";
+    }, 200);
+  }, 2000);
+
+  avatar.addEventListener("click", () => {
+    i = (i + 1) % photos.length;
+    avatar.src = photos[i];
+  });
+</script>
 
 </body>
 </html>
