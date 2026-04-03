@@ -1,188 +1,176 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Информация – Тату | SunDarknessShine</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тату – SunDarknessShine</title>
 
-  <style>
-    html, body { margin:0; padding:0; font-family:"Segoe UI", sans-serif; }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
-    body{
-      background:#000 url("background2.jpg") no-repeat center center fixed;
-      background-size:cover;
-      color:#D6A8F1;
-      text-align:center;
-      padding:2rem 1rem 3rem;
-      min-height:100vh;
-    }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    .lang-switch{
-      position:absolute;
-      top:1.5rem;
-      right:1.5rem;
-      display:flex;
-      gap:.5rem;
-      z-index:5;
-    }
+body {
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:#000 url("background2.jpg") no-repeat center center fixed;
+  background-size:cover;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+  padding-bottom:4rem;
+}
 
-    .lang-switch button{
-      background:rgba(0,0,0,0.6);
-      border:1px solid rgba(255,255,255,0.7);
-      color:white;
-      border-radius:6px;
-      padding:.4rem .8rem;
-      cursor:pointer;
-      transition:background .25s;
-      font-size:.9rem;
-    }
-    .lang-switch button:hover{ background:rgba(255,255,255,0.25); }
+/* Переключатель языка */
+.lang-switch {
+  position:fixed;
+  top:1.3rem;
+  right:1.3rem;
+  display:flex;
+  gap:.5rem;
+  z-index:50;
+}
+.lang-switch button {
+  background:rgba(0,0,0,.6);
+  border:1px solid rgba(255,255,255,.7);
+  color:#fff;
+  border-radius:6px;
+  padding:.35rem .8rem;
+  cursor:pointer;
+  font-size:.9rem;
+}
 
-    .content{
-      max-width:1100px;
-      margin:5rem auto 0;
-      text-align:center;
-    }
+/* Основной заголовок */
+h1 {
+  margin:3rem 0 1.8rem;
+  font-family:'Cinzel', serif;
+  font-size:3.1rem;
+  color:#E2C275;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 30px rgba(226,194,117,.85);
+  letter-spacing:3px;
+}
 
-    h1{
-      font-size:2.4rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      margin-bottom:1.1rem;
-      color:#7A2E8E;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 25px rgba(122,46,142,0.7);
-    }
+/* Подзаголовок — увеличен */
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2.35rem;
+  color:#D8B4E8;
+  margin:2.2rem 0 1.4rem;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 28px rgba(216,180,232,.8);
+  text-align:center;
+}
 
-    .block{
-      margin:0 auto 1.6rem;
-      max-width:1000px;
-      text-align:left;
-    }
+/* Основной текст */
+p, li {
+  font-size:1.45rem;
+  line-height:1.85;
+  margin-bottom:1.1rem;
+  color:#D8B4E8;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 20px rgba(0,0,0,.85);
+}
 
-    .block h2{
-      margin:1.0rem 0 .7rem;
-      font-size:1.5rem;
-      letter-spacing:1px;
-      color:#7A2E8E;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 20px rgba(122,46,142,0.55);
-      text-transform:uppercase;
-      text-align:center;
-    }
+.block {
+  max-width:1000px;
+  margin:0 auto 2rem;
+  text-align:left;
+  padding:0 1rem;
+}
 
-    p{
-      font-size:1.45rem;
-      line-height:1.85;
-      margin:0 0 1.0rem;
-      color:#D6A8F1;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 18px rgba(0,0,0,0.9);
-    }
+a { color:#D8B4E8; text-decoration:underline; }
+a:hover { color:#fff; }
 
-    ul{
-      margin:.2rem 0 1.1rem 1.2rem;
-      padding:0;
-    }
+/* Кнопка назад */
+.back {
+  display:inline-block;
+  margin-top:2rem;
+  padding:.8rem 2rem;
+  border-radius:30px;
+  border:1px solid rgba(216,180,232,.6);
+  background:rgba(0,0,0,.45);
+  color:#D8B4E8;
+  text-decoration:none;
+  font-size:1.05rem;
+  transition:.3s;
+}
+.back:hover {
+  background:#7A2E8E;
+  color:#fff;
+  border-color:#7A2E8E;
+}
 
-    li{
-      font-size:1.45rem;
-      line-height:1.75;
-      margin:.55rem 0;
-      color:#D6A8F1;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 18px rgba(0,0,0,0.9);
-    }
-
-    /* Magenta links */
-    a{ color:#FF3EFF; text-decoration:none; }
-    a:hover{ color:#FF7CFF; text-decoration:underline; }
-
-    .back{
-      display:inline-block;
-      margin-top:1.2rem;
-      padding:10px 16px;
-      border-radius:8px;
-      border:1px solid rgba(255,62,255,0.7);
-      color:#FF3EFF;
-      text-decoration:none;
-      text-shadow:none;
-    }
-    .back:hover{
-      background:rgba(255,62,255,0.3);
-      border-color:#FF7CFF;
-      color:white;
-    }
-
-    @media(max-width:600px){
-      h1{ font-size:1.9rem; }
-      .block h2{ font-size:1.25rem; }
-      p, li{ font-size:1.15rem; line-height:1.65; }
-      .block{ text-align:left; }
-    }
-  </style>
+/* Адаптив */
+@media(max-width:768px) {
+  h1 { font-size:2.4rem; }
+  h2 { font-size:2.0rem; }
+  p, li { font-size:1.25rem; line-height:1.7; }
+}
+</style>
 </head>
 
 <body>
-  <div class="lang-switch">
-    <button onclick="location.href='about2.html'">EN</button>
-    <button onclick="location.href='about2_jp.html'">JP</button>
-  </div>
 
-  <div class="content">
-    <h1>Тату</h1>
+<div class="lang-switch">
+  <button onclick="location.href='about2.html'">EN</button>
+  <button onclick="location.href='about2_jp.html'">JP</button>
+</div>
 
-    <div class="block">
-      <h2>Информация</h2>
+<h1>Тату</h1>
 
-      <p>🎨 <strong>Художественная татуировка</strong> — это долговременное нанесение рисунка на кожу.</p>
+<div class="block">
+  <h2>Информация</h2>
 
-      <p>✔️ <strong>Процесс включает:</strong></p>
-      <ul>
-        <li>Консультацию с мастером (выбор эскиза, размера, расположения).</li>
-        <li>Подготовку и стерилизацию рабочего места.</li>
-        <li>Нанесение татуировки — от простой линии до сложного рисунка.</li>
-        <li>Уход после: инструкции по заживлению.</li>
-      </ul>
+  <p>🎨 <strong>Художественная татуировка</strong> — это долговременное нанесение рисунка на кожу.</p>
 
-      <p>👉 Процедура требует внимания к деталям, аккуратности и соблюдения всех санитарных норм, чтобы избежать инфекций и добиться качественного результата.</p>
+  <p>✔️ <strong>Процесс включает:</strong></p>
+  <ul>
+    <li>Консультацию с мастером (выбор эскиза, размера, расположения).</li>
+    <li>Подготовку и стерилизацию рабочего места.</li>
+    <li>Нанесение татуировки — от простой линии до сложного рисунка.</li>
+    <li>Уход после: инструкции по заживлению.</li>
+  </ul>
 
-      <p>💡 <strong>Основные факторы, влияющие на цену:</strong></p>
-      <ul>
-        <li><strong>Размер и сложность:</strong> чем больше и детальнее рисунок, тем дольше работа и выше стоимость.</li>
-        <li><strong>Чёрно-белая или цветная:</strong> цветные тату обычно дороже из-за более сложной техники и расхода материалов.</li>
-      </ul>
+  <p>👉 Процедура требует внимания к деталям, аккуратности и соблюдения всех санитарных норм, чтобы избежать инфекций и добиться качественного результата.</p>
 
-      <p>🎨 Большие работы (например, рукав, спина) обычно делаются за несколько сеансов, чтобы кожа успела отдохнуть и хорошо зажить между ними.</p>
+  <p>💡 <strong>Основные факторы, влияющие на цену:</strong></p>
+  <ul>
+    <li><strong>Размер и сложность:</strong> чем больше и детальнее рисунок, тем дольше работа и выше стоимость.</li>
+    <li><strong>Чёрно-белая или цветная:</strong> цветные тату обычно дороже из-за более сложной техники и расхода материалов.</li>
+  </ul>
 
-      <p>⏱️ <strong>Минимальная стоимость:</strong> от 10&nbsp;000&nbsp;¥.</p>
+  <p>🎨 Большие работы (например, рукав, спина) обычно делаются за несколько сеансов, чтобы кожа успела отдохнуть и хорошо зажить между ними.</p>
 
-      <p>💡 <strong>Важно 😉</strong></p>
-      <ul>
-        <li>Я работаю только по предварительной записи.</li>
-        <li>Перед процедурой обязательно обсуждаются противопоказания и рекомендации по уходу.</li>
-      </ul>
+  <p>⏱️ <strong>Минимальная стоимость:</strong> от 10 000&nbsp;¥.</p>
 
-      <p>✍️ По вопросам консультации, обращайтесь в <a href="contact_ru.html">контакты</a>.😉</p>
+  <p>💡 <strong>Важно 😉</strong></p>
+  <ul>
+    <li>Я работаю только по предварительной записи.</li>
+    <li>Перед процедурой обязательно обсуждаются противопоказания и рекомендации по уходу.</li>
+  </ul>
 
-      <a href="index2_ru.html" class="back">← Назад</a>
-    </div>
-  </div>
+  <p>✍️ По вопросам консультации обращайтесь в <a href="contact_ru.html">контакты</a>.</p>
+</div>
+
+<a href="index2_ru.html" class="back">← Назад</a>
+
 </body>
 </html>

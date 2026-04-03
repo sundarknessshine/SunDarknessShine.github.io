@@ -1,187 +1,175 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アーティストについて – SunDarknessShine</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アーティストについて – SunDarknessShine</title>
 
-  <style>
-    html, body { margin:0; padding:0; font-family:"Segoe UI", sans-serif; }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
-    body{
-      background:#000 url("background2.jpg") no-repeat center center fixed;
-      background-size:cover;
-      color:#D6A8F1;
-      text-align:center;
-      padding:2rem 1rem 3rem;
-      min-height:100vh;
-    }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    .lang-switch{
-      position:absolute;
-      top:1.5rem;
-      right:1.5rem;
-      display:flex;
-      gap:.5rem;
-      z-index:5;
-    }
+body {
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:#000 url("background2.jpg") no-repeat center center fixed;
+  background-size:cover;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+  padding-bottom:4rem;
+}
 
-    .lang-switch button{
-      background:rgba(0,0,0,0.6);
-      border:1px solid rgba(255,255,255,0.7);
-      color:white;
-      border-radius:6px;
-      padding:.4rem .8rem;
-      cursor:pointer;
-      transition:background .25s;
-      font-size:.9rem;
-    }
-    .lang-switch button:hover{ background:rgba(255,255,255,0.25); }
+/* 言語スイッチャー */
+.lang-switch {
+  position:fixed;
+  top:1.3rem;
+  right:1.3rem;
+  display:flex;
+  gap:.5rem;
+  z-index:50;
+}
+.lang-switch button {
+  background:rgba(0,0,0,.6);
+  border:1px solid rgba(255,255,255,.7);
+  color:#fff;
+  border-radius:6px;
+  padding:.35rem .8rem;
+  cursor:pointer;
+  font-size:.9rem;
+}
 
-    .content{
-      max-width:1100px;
-      margin:5rem auto 0;
-      text-align:center;
-    }
+/* メインタイトル */
+h1 {
+  margin:3rem 0 1.5rem;
+  font-family:'Cinzel', serif;
+  font-size:3.1rem;
+  color:#E2C275;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 30px rgba(226,194,117,.85);
+  letter-spacing:3px;
+}
 
-    h1{
-      font-size:2.4rem;
-      letter-spacing:2px;
-      text-transform:none;
-      margin-bottom:1.3rem;
-      color:#7A2E8E;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 25px rgba(122,46,142,0.7);
-    }
+/* サブタイトル */
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2.0rem;
+  color:#D8B4E8;
+  margin:2.2rem 0 1.2rem;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 25px rgba(216,180,232,.75);
+  text-align:center;
+}
 
-    .block{
-      margin:0 auto 1.8rem;
-      max-width:1000px;
-      text-align:left;
-    }
+/* 本文 */
+p, li {
+  font-size:1.45rem;
+  line-height:1.85;
+  margin-bottom:1.1rem;
+  color:#D8B4E8;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 20px rgba(0,0,0,.85);
+}
 
-    .block h2{
-      margin:1.2rem 0 .7rem;
-      font-size:1.5rem;
-      letter-spacing:1px;
-      color:#7A2E8E;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 20px rgba(122,46,142,0.55);
-      text-transform:uppercase;
-      text-align:center;
-    }
+.block {
+  max-width:1000px;
+  margin:0 auto 2rem;
+  text-align:left;
+  padding:0 1rem;
+}
 
-    p{
-      font-size:1.45rem;
-      line-height:1.85;
-      margin:0 0 1.1rem;
-      color:#D6A8F1;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 18px rgba(0,0,0,0.9);
-    }
+ul {
+  margin:0.5rem 0 1.2rem 1.4rem;
+  padding:0;
+}
 
-    ul{
-      margin:.2rem 0 1.1rem 1.2rem;
-      padding:0;
-    }
+li {
+  margin:0.6rem 0;
+}
 
-    li{
-      font-size:1.45rem;
-      line-height:1.75;
-      margin:.55rem 0;
-      color:#D6A8F1;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 18px rgba(0,0,0,0.9);
-    }
+/* 戻るボタン */
+.back {
+  display:inline-block;
+  margin-top:2rem;
+  padding:.8rem 2rem;
+  border-radius:30px;
+  border:1px solid rgba(216,180,232,.6);
+  background:rgba(0,0,0,.45);
+  color:#D8B4E8;
+  text-decoration:none;
+  font-size:1.05rem;
+  transition:.3s;
+}
+.back:hover {
+  background:#7A2E8E;
+  color:#fff;
+  border-color:#7A2E8E;
+}
 
-    a{ color:#FF3EFF; text-decoration:none; }
-    a:hover{ color:#FF7CFF; text-decoration:underline; }
-
-    .back{
-      display:inline-block;
-      margin-top:1.2rem;
-      padding:10px 16px;
-      border-radius:8px;
-      border:1px solid rgba(255,62,255,0.7);
-      color:#FF3EFF;
-      text-decoration:none;
-      text-shadow:none;
-    }
-    .back:hover{
-      background:rgba(255,62,255,0.3);
-      border-color:#FF7CFF;
-      color:white;
-    }
-
-    @media(max-width:600px){
-      h1{ font-size:1.9rem; }
-      .block h2{ font-size:1.25rem; }
-      p, li{ font-size:1.15rem; line-height:1.65; }
-      .block{ text-align:left; }
-    }
-  </style>
+/* レスポンシブ */
+@media(max-width:768px) {
+  h1 { font-size:2.4rem; }
+  h2 { font-size:1.75rem; }
+  p, li { font-size:1.25rem; line-height:1.7; }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="lang-switch">
-    <button onclick="location.href='about.html'">EN</button>
-    <button onclick="location.href='about_ru.html'">RU</button>
-  </div>
+<div class="lang-switch">
+  <button onclick="location.href='about.html'">EN</button>
+  <button onclick="location.href='about_ru.html'">RU</button>
+</div>
 
-  <div class="content">
-    <h1>SunDarknessShine</h1>
+<h1>SunDarknessShine</h1>
 
-    <!-- Block 1: short intro -->
-    <div class="block">
-      <h2>アーティストについて</h2>
-      <p>
-        SunDarknessShine の制作背景とプロフェッショナルなアプローチをご紹介します。
-        一つの美的感覚（ビジュアル言語）が、タトゥー、アートメイク（PMU）、カスタムテキスタイルアートに
-        どのように活かされているかをご覧ください。
-      </p>
-    </div>
+<div class="block">
+  <h2>アーティストについて</h2>
+  <p>
+    SunDarknessShineのシグネチャービジュアルワークの背後にある創造的な道筋とプロフェッショナルなアプローチを探求してください。
+    タトゥー、パーマネントメイク（PMU）、カスタムテキスタイルアートを通じて一つの芸術言語がどのように表現されているかをご覧ください。
+  </p>
+</div>
 
-    <!-- Block 2: detailed story -->
-    <div class="block">
-      <h2>ストーリーと制作姿勢</h2>
-      <p>
-        はじめまして、エレナ（Elena）です。私の創作は「精密さ」「美しさ」「技術」を重ね合わせることから始まります。
-        日本の伝統や文化からインスピレーションを受けつつ、現代的な技術も取り入れながら、
-        互いに繋がる3つの分野を中心に制作しています。
-      </p>
+<div class="block">
+  <h2>ストーリーとアプローチ</h2>
+  <p>
+    私の名前はエレナです。私のクリエイティブな旅は、精密さ、美しさ、そして職人技の融合です。
+    日本の伝統と文化にインスパイアされ、現代の技術と組み合わせ、私は3つの明確でありながら相互に関連する分野を専門としています：
+  </p>
 
-      <ul>
-        <li><strong>タトゥー：</strong> 細部へのこだわりと長期的な美しさ（持続性）を重視した高品質な施術。</li>
-        <li><strong>アートメイク（PMU）：</strong> 繊細で正確な技術で自然な美しさを引き立てます。タトゥー経験を活かし、左右対称と色の調和を丁寧に整えます。</li>
-        <li><strong>カスタムテキスタイルアート：</strong> 衣類や布を一点ものの作品へ。持ち主の個性を映す、唯一の表現として仕上げます。</li>
-      </ul>
+  <ul>
+    <li><strong>タトゥー：</strong> ディテールと長期耐久性に重点を置いた高品質なタトゥーワーク。</li>
+    <li><strong>パーマネントメイク（PMU）：</strong> 繊細で精密な施術により自然な美しさを引き立てます。タトゥーの経験がクリーンな対称性と調和の取れたカラーバランスを実現します。</li>
+    <li><strong>カスタムテキスタイルアート：</strong> 服や生地をユニークなアートピースに変身させます。一つひとつの作品がオーナーの個性を反映した一点ものです。</li>
+  </ul>
 
-      <p>
-        私の哲学は「日本基準」のクオリティ――一本のラインまで妥協せず、あなたのイメージを深く尊重すること。
-        Ambition のマシンでタトゥーやPMUを行う時も、手作業で布にペイントを施す時も、
-        常に完成度の高い結果を目指しています。
-      </p>
-    </div>
+  <p>
+    私の哲学は「日本のクオリティスタンダード」に従います：すべてのラインにおける完璧さと、あなたのビジョンへの深い敬意。
+    AmbitionマシンでタトゥーとPMUを施す場合も、手描きで生地に描く場合も、常に完璧な結果を目指します。
+  </p>
+</div>
 
-    <a href="index_jp.html" class="back">← トップへ戻る</a>
-  </div>
+<a href="index_jp.html" class="back">← 戻る</a>
 
 </body>
 </html>

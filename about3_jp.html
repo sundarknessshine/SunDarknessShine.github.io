@@ -1,209 +1,198 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>情報 – アートメイク（PMU） | SunDarknessShine</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMU – SunDarknessShine</title>
 
-  <style>
-    html, body { margin:0; padding:0; font-family:"Segoe UI", sans-serif; }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
-    body{
-      background:#000 url("background2.jpg") no-repeat center center fixed;
-      background-size:cover;
-      color:#D6A8F1;
-      text-align:center;
-      padding:2rem 1rem 3rem;
-      min-height:100vh;
-    }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    .lang-switch{
-      position:absolute;
-      top:1.5rem;
-      right:1.5rem;
-      display:flex;
-      gap:.5rem;
-      z-index:5;
-    }
+body {
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:#000 url("background2.jpg") no-repeat center center fixed;
+  background-size:cover;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+  padding-bottom:4rem;
+}
 
-    .lang-switch button{
-      background:rgba(0,0,0,0.6);
-      border:1px solid rgba(255,255,255,0.7);
-      color:white;
-      border-radius:6px;
-      padding:.4rem .8rem;
-      cursor:pointer;
-      transition:background .25s;
-      font-size:.9rem;
-    }
-    .lang-switch button:hover{ background:rgba(255,255,255,0.25); }
+/* 言語スイッチャー */
+.lang-switch {
+  position:fixed;
+  top:1.3rem;
+  right:1.3rem;
+  display:flex;
+  gap:.5rem;
+  z-index:50;
+}
+.lang-switch button {
+  background:rgba(0,0,0,.6);
+  border:1px solid rgba(255,255,255,.7);
+  color:#fff;
+  border-radius:6px;
+  padding:.35rem .8rem;
+  cursor:pointer;
+  font-size:.9rem;
+}
 
-    .content{
-      max-width:1100px;
-      margin:5rem auto 0;
-      text-align:center;
-    }
+/* メインタイトル PMU */
+h1 {
+  margin:3rem 0 1.8rem;
+  font-family:'Cinzel', serif;
+  font-size:3.1rem;
+  color:#E2C275;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 0 30px rgba(226,194,117,.85);
+  letter-spacing:3px;
+}
 
-    h1{
-      font-size:2.4rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      margin-bottom:1.1rem;
-      color:#7A2E8E;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 25px rgba(122,46,142,0.7);
-    }
+/* サブタイトル Information — 大きく */
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2.35rem;
+  color:#D8B4E8;
+  margin:2.2rem 0 1.4rem;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 28px rgba(216,180,232,.8);
+  text-align:center;
+}
 
-    .block{
-      margin:0 auto 1.6rem;
-      max-width:1000px;
-      text-align:left;
-    }
+/* 本文 */
+p, li {
+  font-size:1.45rem;
+  line-height:1.85;
+  margin-bottom:1.1rem;
+  color:#D8B4E8;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 0 20px rgba(0,0,0,.85);
+}
 
-    .block h2{
-      margin:1.0rem 0 .7rem;
-      font-size:1.5rem;
-      letter-spacing:1px;
-      color:#7A2E8E;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 20px rgba(122,46,142,0.55);
-      text-transform:uppercase;
-      text-align:center;
-    }
+.block {
+  max-width:1000px;
+  margin:0 auto 2rem;
+  text-align:left;
+  padding:0 1rem;
+}
 
-    p{
-      font-size:1.45rem;
-      line-height:1.85;
-      margin:0 0 1.0rem;
-      color:#D6A8F1;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 18px rgba(0,0,0,0.9);
-    }
+.price-list {
+  list-style:none;
+  margin:0.8rem 0 1.4rem;
+  padding:0;
+}
+.price-list li {
+  margin:0.7rem 0;
+  padding:0.7rem 1rem;
+  border:1px solid rgba(216,180,232,.5);
+  border-radius:12px;
+  background:rgba(0,0,0,.35);
+}
 
-    ul{
-      margin:.2rem 0 1.1rem 1.2rem;
-      padding:0;
-    }
+a { color:#D8B4E8; text-decoration:underline; }
+a:hover { color:#fff; }
 
-    li{
-      font-size:1.45rem;
-      line-height:1.75;
-      margin:.55rem 0;
-      color:#D6A8F1;
-      text-shadow:
-       -2px -2px 0 #000,
-        2px -2px 0 #000,
-       -2px  2px 0 #000,
-        2px  2px 0 #000,
-        0 0 18px rgba(0,0,0,0.9);
-    }
+/* 戻るボタン */
+.back {
+  display:inline-block;
+  margin-top:2rem;
+  padding:.8rem 2rem;
+  border-radius:30px;
+  border:1px solid rgba(216,180,232,.6);
+  background:rgba(0,0,0,.45);
+  color:#D8B4E8;
+  text-decoration:none;
+  font-size:1.05rem;
+  transition:.3s;
+}
+.back:hover {
+  background:#7A2E8E;
+  color:#fff;
+  border-color:#7A2E8E;
+}
 
-    .price-list{
-      list-style:none;
-      margin:.4rem 0 1.2rem;
-      padding:0;
-    }
-    .price-list li{
-      margin:.6rem 0;
-      padding:.6rem .9rem;
-      border:1px solid rgba(255,62,255,.45);
-      border-radius:10px;
-      background:rgba(0,0,0,.25);
-    }
-
-    a{ color:#FF3EFF; text-decoration:none; }
-    a:hover{ color:#FF7CFF; text-decoration:underline; }
-
-    .back{
-      display:inline-block;
-      margin-top:1.2rem;
-      padding:10px 16px;
-      border-radius:8px;
-      border:1px solid rgba(255,62,255,0.7);
-      color:#FF3EFF;
-      text-decoration:none;
-      text-shadow:none;
-    }
-    .back:hover{
-      background:rgba(255,62,255,0.3);
-      border-color:#FF7CFF;
-      color:white;
-    }
-
-    @media(max-width:600px){
-      h1{ font-size:1.9rem; }
-      .block h2{ font-size:1.25rem; }
-      p, li{ font-size:1.15rem; line-height:1.65; }
-      .block{ text-align:left; }
-    }
-  </style>
+/* レスポンシブ */
+@media(max-width:768px) {
+  h1 { font-size:2.4rem; }
+  h2 { font-size:2.0rem; }
+  p, li { font-size:1.25rem; line-height:1.7; }
+}
+</style>
 </head>
 
 <body>
-  <div class="lang-switch">
-    <button onclick="location.href='about3.html'">EN</button>
-    <button onclick="location.href='about3_ru.html'">RU</button>
-  </div>
 
-  <div class="content">
-    <h1>PMU</h1>
+<div class="lang-switch">
+  <button onclick="location.href='about3.html'">EN</button>
+  <button onclick="location.href='about3_ru.html'">RU</button>
+</div>
 
-    <div class="block">
-      <h2>PMUのご案内</h2>
+<h1>PMU</h1>
 
-      <p>
-        🪄 <strong>アートメイク（PMU）</strong>は、専用の色素（ピグメント）を皮膚の浅い層に入れて
-        メイクのような効果を再現したり、顔立ちを整えたりする美容施術です（眉・リップ・アイラインなど）。
-        毎日のメイク時間を短縮し、形やライン、輪郭などの美的なお悩みをサポートします。
-      </p>
+<div class="block">
+  <h2>情報</h2>
 
-      <p>💆‍♀️ <strong>施術の流れ：</strong></p>
-      <ul>
-        <li>カウンセリング（形・色のデザイン）</li>
-        <li>消毒・麻酔（必要に応じて）</li>
-        <li>専用マシンでピグメントを定着</li>
-        <li>回復期間 → 必要に応じてリタッチ</li>
-      </ul>
+  <p>
+    🪄 <strong>アートメイク（PMU）</strong>は、専用の色素を皮膚の浅い層に入れて
+    メイクのような効果を再現したり、顔立ちを整えたりする美容施術です（眉・リップ・アイラインなど）。
+    毎日のメイク時間を短縮し、美的なお悩みを解決します。
+  </p>
 
-      <p>📌 施術時間は通常 <strong>1.5〜3時間</strong>。仕上がりイメージの確認とアフターケア説明を含みます。</p>
-      <p>📌 施術後 <strong>4〜8週間</strong> でのリタッチ（補正）が推奨されます。</p>
+  <p>💆‍♀️ <strong>施術の流れ：</strong></p>
+  <ul>
+    <li>カウンセリングと形・色のデザイン</li>
+    <li>消毒と麻酔（必要に応じて）</li>
+    <li>専用マシンでピグメントを定着</li>
+    <li>回復期間と必要に応じたリタッチ</li>
+  </ul>
 
-      <p>📌 <strong>アフターケアのポイント：</strong></p>
-      <ul>
-        <li>施術直後数日は軽い腫れ・赤みが出る場合があります。</li>
-        <li>治癒中のかさぶたは剥がさないでください。</li>
-        <li>ケア指示を守る（保護クリーム／水・汗を避ける 等）。</li>
-      </ul>
+  <p>📌 施術時間は通常 <strong>1.5〜3時間</strong>。希望の仕上がり確認とアフターケア説明を含みます。</p>
+  <p>📌 施術後 <strong>4〜8週間</strong> でリタッチ（補正）が推奨されます。</p>
 
-      <p>💰 <strong>料金：</strong></p>
-      <ul class="price-list">
-        <p><strong>眉（パウダー）</strong> — 35,000円</p>
-        <p><strong>アイライン／跳ね上げ／インライン</strong> — 25,000円</p>
-        <p><strong>リップ（リップブラッシュ）</strong> — 35,000円</p>
-      </ul>
+  <p>📌 <strong>アフターケアのポイント：</strong></p>
+  <ul>
+    <li>施術直後数日は軽い腫れ・赤みが出る場合があります。</li>
+    <li>治癒中のかさぶたは剥がさないでください。</li>
+    <li>ケア指示を守る（保護クリーム／水・汗を避けるなど）。</li>
+  </ul>
 
-      <p>💡 <strong>重要 😉</strong></p>
-      <ul>
-        <li>完全予約制です。</li>
-        <li>施術前に禁忌事項とアフターケアを必ず確認します。</li>
-      </ul>
+  <p>💰 <strong>料金：</strong></p>
+  <ul class="price-list">
+    <li><strong>眉（パウダー効果）</strong> — 35,000円</li>
+    <li><strong>アイライン／跳ね上げ／インライン</strong> — 25,000円</li>
+    <li><strong>リップ（リップブラッシュ）</strong> — 35,000円</li>
+  </ul>
 
-      <p>✍️ ご相談は <a href="contact_jp.html">コンタクト</a> からどうぞ 😉</p>
+  <p>💡 <strong>重要 😉</strong></p>
+  <ul>
+    <li>完全予約制です。</li>
+    <li>施術前に禁忌事項とアフターケアを必ず確認します。</li>
+  </ul>
 
-      <a href="index3_jp.html" class="back">← 戻る</a>
-    </div>
-  </div>
+  <p>✍️ ご相談は <a href="contact_jp.html">お問い合わせ</a> からどうぞ。</p>
+</div>
+
+<a href="index3_jp.html" class="back">← 戻る</a>
+
 </body>
 </html>
